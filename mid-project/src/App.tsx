@@ -1,12 +1,6 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { Pages } from "./pages";
 
-function App() {
-  return (
-    <div className="App">
-      Our First APP
-    </div>
-  );
-}
-
-export default App;
+export const App: React.FC = () => {
+  return <Pages />;
+};
