@@ -1,5 +1,5 @@
 export const paths = {
-  home: () => '/home',
+  home: () => '/',
   /**
    * @example
    * user: (username = ':username') => `/@${username}`,
