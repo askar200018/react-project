@@ -9,7 +9,7 @@ export const App: React.FC = () => {
   console.log(location.pathname, 'path name');
   return (
     <>
-      <Navbar />
+      {location.pathname !== '/login' && location.pathname !== '/signup' && <Navbar />}
       <Pages />
     </>
   );
