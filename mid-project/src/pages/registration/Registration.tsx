@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
 import './Registration.scss';
+import { Link } from 'react-router-dom';
 
 interface Props {}
 
@@ -80,6 +81,9 @@ export const Registration = (props: Props) => {
           )}
         </div>
         <input type="submit" />
+        <button>
+          <Link to="/">go back</Link>
+        </button>
       </form>
     </div>
   );

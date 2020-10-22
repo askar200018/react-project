@@ -3,6 +3,7 @@ import { Home } from './home';
 import { paths } from './path';
 import { Registration } from './registration/Registration';
 import { Login } from './login/Login';
+import { Items } from './items/Items';
 
 export const ROUTES: RouteConfig[] = [
   {
@@ -19,5 +20,10 @@ export const ROUTES: RouteConfig[] = [
     path: paths.login(),
     exact: true,
     component: Login,
+  },
+  {
+    path: paths.items(),
+    exact: true,
+    component: Items,
   },
 ];

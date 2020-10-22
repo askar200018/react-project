@@ -2,6 +2,7 @@ import React from 'react'
 import './Login.scss';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
+import { Link } from 'react-router-dom';
 
 interface Props {
     
@@ -44,12 +45,13 @@ export const Login = (props: Props) => {
       };
       
     return (
-        <div className="auth-wrapper">
-      <form className="login" onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-field">
-          <label>Email</label>
+        <div className="login-wrap">
+      <form className="login-html" onSubmit={handleSubmit(onSubmit)}>
+      <div className="group">
+          <label className="label">Email</label>
           <input
-            name="email"
+            name="email" 
+            className="input"
             ref={register({
               required: true,
               pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
@@ -58,11 +60,12 @@ export const Login = (props: Props) => {
           {_.get('email.type', errors) === 'required' && <p>Email is required</p>}
           {_.get('email.type', errors) === 'pattern' && <p>Email should include @</p>}
         </div>
-        <div className="form-field">
-          <label>Password</label>
+        <div className="group">
+          <label className="label">Password</label>
           <input
             type="password"
             name="password"
+            className="input"
             ref={register({
               required: true,
               minLength: 5,
@@ -73,7 +76,10 @@ export const Login = (props: Props) => {
             <p>Password should be greater than 5 characters</p>
           )}
         </div>
-        <input type="submit" className="auth"/>
+        <input type="submit" className="button"/>
+        <button className="button">
+          <Link to="/">go back</Link>
+        </button>
       </form>
     </div>
     );
