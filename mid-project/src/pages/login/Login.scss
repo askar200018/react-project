@@ -1,0 +1,20 @@
+.auth-wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background: url(./img/photo_2020-10-22_19-36-09.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    
+  }
+  
+  .auth {
+    color: #bbb;
+    border: 1px solid #bbb;
+    &:hover {
+      color: black;
+      background-color: #bbb;
+    }
+}
