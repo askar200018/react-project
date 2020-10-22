@@ -5,13 +5,13 @@ import './Registration.scss';
 
 interface Props {}
 
-enum Profession {
+export enum Profession {
   Designer,
   Developer,
   User,
 }
 
-interface IForm {
+export interface IForm {
   name: string;
   email: string;
   password: string;
