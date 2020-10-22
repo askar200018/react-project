@@ -45,3 +45,12 @@
     background-color: #282c34;
   }
 }
+
+.pics{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 75px;
+  margin-left: 40px;
+  display:flex;
+  flex-direction: row;
+}

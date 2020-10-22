@@ -21,9 +21,5 @@ export const ROUTES: RouteConfig[] = [
     exact: true,
     component: Login,
   },
-  {
-    path: paths.items(),
-    exact: true,
-    component: Items,
-  },
+  
 ];
