@@ -7,6 +7,9 @@ import CreateHome from './createHome/CreateHome';
 import Rooms from '../features/rooms/Rooms';
 import RoomsDetail from './roomsDetail/RoomsDetail';
 import { path } from 'lodash/fp';
+import { Company } from './company/Company';
+import Contacts from './contacts/Contacts';
+import { Main } from './main/Main';
 
 export const ROUTES: RouteConfig[] = [
   {
@@ -38,5 +41,20 @@ export const ROUTES: RouteConfig[] = [
     path: paths.rooms(),
     exact: true,
     component: Home,
+  },
+  {
+    path: paths.company(),
+    exact: true,
+    component: Company,
+  },
+  {
+    path: paths.contacts(),
+    exact: true,
+    component: Contacts,
+  },
+  {
+    path: paths.main(),
+    exact: true,
+    component: Main,
   },
 ];

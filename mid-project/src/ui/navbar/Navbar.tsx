@@ -1,3 +1,4 @@
+import { path } from 'lodash/fp';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { IsLoggedInContext } from '../../contexts/IsLoggedIn';
@@ -6,6 +7,30 @@ import styles from './Navbar.module.css';
 interface Props {}
 
 export const useIsLogged = () => React.useContext(IsLoggedInContext);
+
+interface LinkInterface {
+  path: string;
+  name: string;
+}
+
+const links: LinkInterface[] = [
+  {
+    path: '/',
+    name: 'Home',
+  },
+  {
+    path: '/company',
+    name: 'About us',
+  },
+  {
+    path: '/main',
+    name: 'Main',
+  },
+  {
+    path: '/contacts',
+    name: 'Contacts',
+  },
+];
 
 export const Navbar = (props: Props) => {
   const location = useLocation();
@@ -47,9 +72,13 @@ export const Navbar = (props: Props) => {
       </div>
       <div className={styles.menu}>
         <ul className="menu-list">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+          {links.map((link, index) => {
+            return (
+              <li key={index}>
+                <Link to={link.path}>{link.name}</Link>
+              </li>
+            );
+          })}
           <li>
             {!isLoggedIn && (
               <Link className={styles.auth} to="/signin">

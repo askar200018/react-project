@@ -1,0 +1,72 @@
+.text-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  font-size: 7vw;
+  font-weight: 700;
+  //background-color: #5d7963;
+  color: black;
+  display: block;
+  padding: 0.8em;
+}
+
+.text:nth-child(2) {
+  position: absolute;
+  //background-color: #fff;
+  color: #fff;
+  clip-path: inset(-1% -1% 45% -1%);
+}
+
+.mtext {
+  font-size: 2vw;
+  font-weight: 900;
+  margin-top: 1em;
+  text-align: center;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container {
+  text-align: center;
+  height: 100vh;
+  background: url(https://archello.com/thumbs/images/2020/10/01/archilume-balance-pendants-archello.1601538715.3972.jpg)
+    no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+}
+.mtext {
+  font-family: 'Fira Code', monospace;
+  display: inline-block;
+  font-size: 2rem;
+  color: black;
+  background-repeat: no-repeat;
+
+  white-space: nowrap;
+}
+
+.ltext {
+  font-size: 2vw;
+  font-weight: 450;
+  margin-top: 10em;
+  text-align: center;
+  font-family: 'Fira Code', monospace;
+  display: inline-block;
+  font-size: 2rem;
+  color: black;
+  background-repeat: no-repeat;
+  white-space: nowrap;
+}

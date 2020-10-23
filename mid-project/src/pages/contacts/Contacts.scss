@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+.q {
+  background-size: cover;
+  height: 100vh;
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0 20px;
+}
+.contact-form {
+  max-width: 550px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 5px;
+  display: flex;
+  box-shadow: 0 0 10px;
+}
+.input-fields.msg {
+  width: 48%;
+}
+.input-fields .input,
+.msg textarea {
+  margin: 10px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #5d7963;
+  padding: 10px;
+  color: #5d7963;
+  width: 100%;
+}
+.msg textarea {
+  height: 212px;
+}
+::-webkit-input-placeholder {
+  color: #5d7963;
+}
+::-moz-input-placeholder {
+  color: #5d7963;
+}
+::-ms-input-placeholder {
+  color: #5d7963;
+}
+.btn {
+  background-color: #5d7963;
+  text-align: center;
+  padding: 15px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 600px) {
+  .contact-form {
+    flex-direction: column;
+  }
+  .msg textarea {
+    height: 80px;
+  }
+  .input-fields,
+  .msg {
+    width: 100%;
+  }
+}

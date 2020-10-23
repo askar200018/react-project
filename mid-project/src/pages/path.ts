@@ -5,6 +5,9 @@ export const paths = {
   create: () => '/create',
   rooms: () => '/rooms',
   roomDetail: (id: string) => `/rooms/${id}`,
+  company: () => '/company',
+  contacts: () => '/contacts',
+  main: () => '/main',
   /**
    * @example
    * user: (username = ':username') => `/@${username}`,
