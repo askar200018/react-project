@@ -5,11 +5,16 @@ export interface Room {
   description: string;
   like: number;
   imageUrl: string;
-  price: number;
-  type: RoomType;
-  comments: Comment[];
+  cost: number;
+  roomType: RoomType;
+  comments?: Comment[];
 }
 
-enum RoomType {
-  'BATHROOM',
+export enum RoomType {
+  'Bathroom',
+  'Bedroom',
+  'Toiletroom',
+  'Livingroom',
+  'Kitchenroom',
+  'Kidsroom',
 }

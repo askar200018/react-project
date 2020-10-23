@@ -3,8 +3,12 @@ import { Pages } from './pages';
 
 import { useLocation } from 'react-router-dom';
 import { Navbar } from './ui/navbar';
-import { userList } from './api/user';
+import { getActiveUser } from './api/user';
 import { IsLoggedInContext } from './contexts/IsLoggedIn';
+import { InitialRooms } from './data/rooms.mock';
+import { ActiveUserContext } from './contexts/ActiveUserContext';
+
+export const RoomsContext = React.createContext(InitialRooms);
 
 export const App: React.FC = () => {
   const isLoggedFunction = (): boolean => {
@@ -14,6 +18,7 @@ export const App: React.FC = () => {
     return false;
   };
   const [isLoggedIn, setIsLoggedIn] = useState(isLoggedFunction);
+  const [activeUser, setActiveUser] = useState(JSON.parse(getActiveUser()));
   const location = useLocation();
   console.log(location.pathname, 'path name');
 
@@ -25,8 +30,12 @@ export const App: React.FC = () => {
   return (
     <>
       <IsLoggedInContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        {location.pathname !== '/signin' && location.pathname !== '/signup' && <Navbar />}
-        <Pages />
+        <ActiveUserContext.Provider value={{ activeUser, setActiveUser }}>
+          <RoomsContext.Provider value={InitialRooms}>
+            {location.pathname !== '/signin' && location.pathname !== '/signup' && <Navbar />}
+            <Pages />
+          </RoomsContext.Provider>
+        </ActiveUserContext.Provider>
       </IsLoggedInContext.Provider>
     </>
   );

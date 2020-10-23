@@ -1,3 +1,4 @@
+import { House } from './house.interface';
 import { Profession } from './profession.enum';
 
 export interface User {
@@ -5,4 +6,5 @@ export interface User {
   password: string;
   name: string;
   profession: Profession;
+  houses?: House[];
 }

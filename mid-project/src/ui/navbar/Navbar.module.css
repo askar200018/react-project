@@ -69,3 +69,10 @@ a.auth:hover {
   color: black;
   background-color: #bbb;
 }
+a {
+  text-decoration: none;
+}
+
+.logo a {
+  color: #ffffff;
+}

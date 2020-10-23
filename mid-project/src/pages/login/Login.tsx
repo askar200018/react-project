@@ -21,12 +21,13 @@ export const Login = (props: Props) => {
 
   const onSubmit = (data: IForm) => {
     const users = JSON.parse(userList());
-    const result = users.find((user: User) => {
+    const activeUser = users.find((user: User) => {
       return data.email === user.email && data.password === user.password;
     });
-    if (!!result) {
+    if (!!activeUser) {
       localStorage.setItem('token', JSON.stringify(true));
       localStorage.setItem('loggedIn', JSON.stringify(true));
+      localStorage.setItem('activeUser', JSON.stringify(activeUser));
       setIsLoggedIn(true);
       history.push('/');
     } else {

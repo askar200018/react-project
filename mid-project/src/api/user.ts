@@ -22,3 +22,10 @@ export const userCreate = (user: User): boolean => {
     return true;
   }
 };
+
+export const getActiveUser = (): any => {
+  if (localStorage.getItem('activeUser')) {
+    return localStorage.getItem('activeUser');
+  }
+  return null;
+};
