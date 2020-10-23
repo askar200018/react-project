@@ -3,8 +3,10 @@ import { Pages } from './pages';
 
 import { useLocation } from 'react-router-dom';
 import { Navbar } from './ui/navbar';
+<!-- import { Footer } from './ui/footer';
+=======
 import { userList } from './api/user';
-import { IsLoggedInContext } from './contexts/IsLoggedIn';
+import { IsLoggedInContext } from './contexts/IsLoggedIn'; -->
 
 export const App: React.FC = () => {
   const isLoggedFunction = (): boolean => {
@@ -24,6 +26,15 @@ export const App: React.FC = () => {
   }, []);
   return (
     <>
+      {location.pathname !== '/signin' &&
+        location.pathname !== '/signup' &&
+        location.pathname !== '/home' && 
+        location.pathname !=='/contacts'&&<Navbar />}
+      <Pages />
+      {location.pathname !== '/home' && 
+      location.pathname !== '/contacts' &&<Footer />}
+      
+
       <IsLoggedInContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         {location.pathname !== '/signin' && location.pathname !== '/signup' && <Navbar />}
         <Pages />

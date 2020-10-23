@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IsLoggedInContext } from '../../contexts/IsLoggedIn';
 import styles from './Navbar.module.css';
 
-interface Props {}
+interface Props { }
 
 export const useIsLogged = () => React.useContext(IsLoggedInContext);
 
@@ -31,7 +31,10 @@ export const Navbar = (props: Props) => {
       <div className={styles.menu}>
         <ul className="menu-list">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/contacts">Contacts</Link>
           </li>
           <li>
             {!isLoggedIn && (
