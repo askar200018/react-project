@@ -1,6 +1,6 @@
 import React from 'react'
 import {items} from './Products'
-
+import './Items.scss'
 interface Props {
     items:Item[]
 }

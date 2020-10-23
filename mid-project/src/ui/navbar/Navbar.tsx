@@ -23,6 +23,11 @@ export const Navbar = (props: Props) => {
               Sign up
             </Link>
           </li>
+          <li>
+            <Link className="auth" to="/company">
+              About us
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

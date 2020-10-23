@@ -4,7 +4,7 @@ import { paths } from './path';
 import { Registration } from './registration/Registration';
 import { Login } from './login/Login';
 import { Items } from './items/Items';
-
+import { Company } from './company/Company';
 export const ROUTES: RouteConfig[] = [
   {
     path: paths.home(),
@@ -21,5 +21,9 @@ export const ROUTES: RouteConfig[] = [
     exact: true,
     component: Login,
   },
-  
+  {
+    path: paths.company(),
+    exact: true,
+    component: Company,
+  },
 ];
