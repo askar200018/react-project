@@ -1,64 +1,75 @@
-import React from 'react'
-import './Login.scss';
+import React, { useContext } from 'react';
+import styles from './Login.module.scss';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
+import { Link, useHistory } from 'react-router-dom';
+import { userList } from '../../api/user';
+import { User } from '../../models/user.model';
+import { IsLoggedInContext } from '../../contexts/IsLoggedIn';
 
-interface Props {
-    
-}
-enum Profession {
-  Designer,
-  Developer,
-  User,
-}
-
+interface Props {}
 interface IForm {
   email: string;
   password: string;
 }
-
-interface User {
-  email: string;
-  password: string;
-  name: string;
-  profession: Profession;
-}
-
-const users: User[] = [
- {
-  email:"nurai@gmail.com", 
-  password:"12345", 
-  name:"Nurai", 
-  profession:Profession.User
- }
-]
+export const useIsLogged = () => React.useContext(IsLoggedInContext);
 
 export const Login = (props: Props) => {
-    const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
+  const history = useHistory();
+  const { isLoggedIn, setIsLoggedIn } = useIsLogged()!;
 
-    const onSubmit = (data: IForm) => {
-      const result = users.find((user) => {
-        return data.email === user.email && data.password === user.password;
-      });
-      if(!!result ){console.log(true)}
-      };
-      
-    return (
-        <div className="auth-wrapper">
+  const onSubmit = (data: IForm) => {
+    const users = JSON.parse(userList());
+    const result = users.find((user: User) => {
+      return data.email === user.email && data.password === user.password;
+    });
+    if (!!result) {
+      localStorage.setItem('token', JSON.stringify(true));
+      localStorage.setItem('loggedIn', JSON.stringify(true));
+      setIsLoggedIn(true);
+      history.push('/');
+    } else {
+      alert('incorrect');
+    }
+  };
+
+  return (
+    <div className={styles.authwrapper}>
+      <nav className={styles.nav}>
+        <div className={styles.logo}>
+          <Link to="/">LOGO</Link>
+        </div>
+        <div className={styles.menu}>
+          <ul>
+            <li>
+              <Link className={styles.auth} to="/signup">
+                Sign up
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <form className="login" onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-field">
+        <h1>Login</h1>
+        <div className={styles.formfield}>
           <label>Email</label>
           <input
+            type="email"
             name="email"
             ref={register({
               required: true,
               pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
             })}
           />
-          {_.get('email.type', errors) === 'required' && <p>Email is required</p>}
-          {_.get('email.type', errors) === 'pattern' && <p>Email should include @</p>}
+          {_.get('email.type', errors) === 'required' && (
+            <p className={styles.error}>Email is required</p>
+          )}
+          {_.get('email.type', errors) === 'pattern' && (
+            <p className={styles.error}>Email should include @</p>
+          )}
         </div>
-        <div className="form-field">
+        <div className={styles.formfield}>
           <label>Password</label>
           <input
             type="password"
@@ -68,13 +79,15 @@ export const Login = (props: Props) => {
               minLength: 5,
             })}
           />
-          {_.get('password.type', errors) === 'required' && <p>Password is required</p>}
+          {_.get('password.type', errors) === 'required' && (
+            <p className={styles.error}>Password is required</p>
+          )}
           {_.get('password.type', errors) === 'minLength' && (
-            <p>Password should be greater than 5 characters</p>
+            <p className={styles.error}>Password should be greater than 5 characters</p>
           )}
         </div>
-        <input type="submit" />
+        <button type="submit">Login</button>
       </form>
     </div>
-    );
-}
+  );
+};
