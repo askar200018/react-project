@@ -3,6 +3,8 @@ import { Home } from './home';
 import { paths } from './path';
 import { Registration } from './registration/Registration';
 import { Login } from './login/Login';
+import { Main } from './../ui/Main/Main';
+import { Contacts } from './../ui/contacts/Contacts';
 
 export const ROUTES: RouteConfig[] = [
   {
@@ -20,4 +22,13 @@ export const ROUTES: RouteConfig[] = [
     exact: true,
     component: Login,
   },
+  { path: paths.main(), 
+    exact: true, 
+    component: Main 
+  },
+
+    { path: paths.contacts(), 
+      exact: true, 
+      component: Contacts,
+    },
 ];

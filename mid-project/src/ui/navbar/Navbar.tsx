@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.scss';
 
-interface Props {}
+interface Props { }
 
 export const Navbar = (props: Props) => {
   return (
@@ -11,7 +11,10 @@ export const Navbar = (props: Props) => {
       <div className="menu">
         <ul className="menu-list">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
+          </li>
+          <li>
+            <Link to="/contacts">Contacts</Link>
           </li>
           <li>
             <Link className="auth" to="/signin">
