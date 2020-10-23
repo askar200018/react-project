@@ -10,6 +10,7 @@ import { path } from 'lodash/fp';
 import { Company } from './company/Company';
 import Contacts from './contacts/Contacts';
 import { Main } from './main/Main';
+import Profile from './Profile/Profile';
 
 export const ROUTES: RouteConfig[] = [
   {
@@ -56,5 +57,10 @@ export const ROUTES: RouteConfig[] = [
     path: paths.main(),
     exact: true,
     component: Main,
+  },
+  {
+    path: paths.profile(),
+    exact: true,
+    component: Profile,
   },
 ];

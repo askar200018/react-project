@@ -8,6 +8,7 @@ export const paths = {
   company: () => '/company',
   contacts: () => '/contacts',
   main: () => '/main',
+  profile: () => '/profile',
   /**
    * @example
    * user: (username = ':username') => `/@${username}`,
