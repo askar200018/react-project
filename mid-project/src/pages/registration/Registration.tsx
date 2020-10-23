@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
 import styles from './Registration.module.scss';
 import { Link, useHistory } from 'react-router-dom';
 import { userCreate } from '../../api/user';
+import { InputType } from 'zlib';
 
 interface Props {}
 
@@ -23,9 +24,16 @@ export interface IForm {
 const professons: string[] = ['Designer', 'Developer', 'User'];
 
 export const Registration = (props: Props) => {
+  const inputEl = useRef<HTMLInputElement>(null);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory();
+
+  useEffect(() => {
+    if (inputEl && inputEl.current) {
+      inputEl.current.focus();
+    }
+  }, []);
 
   const onSubmit = (data: IForm) => {
     console.log(data);

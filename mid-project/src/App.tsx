@@ -35,7 +35,6 @@ export const App: React.FC = () => {
           <RoomsContext.Provider value={InitialRooms}>
             {location.pathname !== '/signin' && location.pathname !== '/signup' && <Navbar />}
             <Pages />
-            {location.pathname !== '/signin' && location.pathname !== '/signup' && <Footer />}
           </RoomsContext.Provider>
         </ActiveUserContext.Provider>
       </IsLoggedInContext.Provider>

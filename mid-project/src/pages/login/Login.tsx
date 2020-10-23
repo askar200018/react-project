@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import styles from './Login.module.scss';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
@@ -15,9 +15,16 @@ interface IForm {
 export const useIsLogged = () => React.useContext(IsLoggedInContext);
 
 export const Login = (props: Props) => {
+  const inputEl = useRef<HTMLInputElement>(null);
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory();
   const { isLoggedIn, setIsLoggedIn } = useIsLogged()!;
+
+  useEffect(() => {
+    if (inputEl && inputEl.current) {
+      inputEl.current.focus();
+    }
+  }, []);
 
   const onSubmit = (data: IForm) => {
     const users = JSON.parse(userList());

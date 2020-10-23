@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
 import styles from './CreateHome.module.scss';
@@ -9,9 +9,16 @@ import { useHistory } from 'react-router';
 interface Props {}
 
 const CreateHome = (props: Props) => {
+  const inputEl = useRef<HTMLInputElement>(null);
   const history = useHistory();
   const { activeUser, setActiveUser } = useActiveUser()!;
   const { register, handleSubmit, errors } = useForm();
+
+  useEffect(() => {
+    if (inputEl && inputEl.current) {
+      inputEl.current.focus();
+    }
+  }, []);
 
   const onSubmit = (data: House) => {
     console.log(data);
