@@ -1,5 +1,4 @@
-import { path } from 'lodash/fp';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { IsLoggedInContext } from '../../contexts/IsLoggedIn';
 import styles from './Navbar.module.css';
@@ -36,17 +35,24 @@ export const Navbar = (props: Props) => {
   const location = useLocation();
   const { isLoggedIn, setIsLoggedIn } = useIsLogged()!;
   const initialColor = location.pathname === '/' ? 'inherit' : '#2D6A4F';
-  console.log(initialColor);
   const [background, setBackground] = useState(initialColor);
+  const navStyle = {
+    background: background,
+  };
+
   const scrollEvent = () => {
-    const backgroundcolor =
-      window.scrollY < 140 && location.pathname === '/' ? 'inherit' : '#2D6A4F';
+    const backgroundcolor = window.scrollY < 140 && location.pathname === '/' ? 'inherit' : '#000';
 
     setBackground(backgroundcolor);
   };
 
+  const logout = () => {
+    localStorage.removeItem('loggedIn');
+    setIsLoggedIn(false);
+  };
+
   useEffect(() => {
-    const initialColor = location.pathname === '/' ? 'inherit' : '#2D6A4F';
+    const initialColor = location.pathname === '/' ? 'inherit' : '#5d7963';
     setBackground(initialColor);
   }, [location, setBackground]);
 
@@ -58,13 +64,7 @@ export const Navbar = (props: Props) => {
       document.removeEventListener('scroll', scrollEvent);
     };
   });
-  const logout = () => {
-    localStorage.removeItem('loggedIn');
-    setIsLoggedIn(false);
-  };
-  const navStyle = {
-    background: background,
-  };
+
   return (
     <div className={styles.nav} style={navStyle}>
       <div className={styles.logo}>

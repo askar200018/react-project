@@ -7,11 +7,11 @@ import { getActiveUser } from './api/user';
 import { IsLoggedInContext } from './contexts/IsLoggedIn';
 import { InitialRooms } from './data/rooms.mock';
 import { ActiveUserContext } from './contexts/ActiveUserContext';
-import { Footer } from './ui/footer/Footer';
 
 export const RoomsContext = React.createContext(InitialRooms);
 
 export const App: React.FC = () => {
+  console.log('initial rooms', JSON.stringify(InitialRooms));
   const isLoggedFunction = (): boolean => {
     if (localStorage.getItem('loggedIn')) {
       return true;

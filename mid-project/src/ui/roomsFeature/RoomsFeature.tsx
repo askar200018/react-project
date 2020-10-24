@@ -12,32 +12,32 @@ interface RoomType {
 const categories: RoomType[] = [
   {
     imgUrl:
-      'https://psv4.userapi.com/c856328/u271414291/docs/d13/7d5ac211e76b/1.png?extra=EQ-YQ8_vLgI9bl0bLy9b2yvHk06UUJwpMjTBTmLdi8VsA3MRuYKeK14Ld6JASu6Y0qGu5s3jxUDrYWzBuMeT8AFAzJ5WIcSUhtMYNinQuNHnzxElJhOnOVQ72sN-5ZdAccseEcG4lfex_5KoHXwLuJC0',
+      'https://psv4.userapi.com/c856328/u271414291/docs/d13/641bf3ea9e94/1.png?extra=uF_vGWKX_Z9jfRfM3PV3IGIxei7KvdWgEeuULJqjvGXhHoMJ_-AwtAF9c1agHxVxXePzUJazRtOC58EooBXfuosc3RKisCitnNE3d9qqchzdMnBnK204PJlDf8vbQJYood6BeIiLtlFOPNybbPT5LESX4g',
     name: 'Kitchen Room',
   },
   {
     imgUrl:
-      'https://psv4.userapi.com/c856328/u271414291/docs/d6/3df0bff14d30/3.png?extra=D0mFfhhtJdcgDYprNGuDhwhHTbc1nNwFz3Fyx8BTzFH9X_iqsC7-1uYvTXUzDoXmm317Z-f6Fw9nWokeQ0dWzLusRjMshNOeVMNeHQ-VPJUEGkPRLEINmh_683G_rW5EpSYrpJl7rRHnaWjZJsFfug1S',
+      'https://psv4.userapi.com/c856328/u271414291/docs/d6/1fca258a4ff1/3.png?extra=KH9chMFailURjQJPjFPpW2GpOOfd_iH0rNzBmg7Dqclcx5NYxdPO5n7cVHq2RJbRdd8VWf4S_XyfVHfJDu-RZhyTasRyhWtXO8aaW7SRxyeALPvC_Go8M_rCOc4ncGyDRDuRrBTIzZVVarWILGulVHvn7g',
     name: 'Living Room',
   },
   {
     imgUrl:
-      'https://psv4.userapi.com/c856328/u271414291/docs/d18/cbfd9227d19a/4.png?extra=nEKLhCEHhggxuOntJaZDRKL3Ll2rOhv2KnCahe7g7XRpCSyfZh5xx0nmk1Yz-hVplWn6pvKhDu8ZO7Wz4p81s0lmVB-Zz5mB1_pRVJD_AoG3UsuKCZUDn_okdsyIVLnpfl6G4yMio27yCLisln8wKv5J',
+      'https://psv4.userapi.com/c856328/u271414291/docs/d18/34197f974e99/4.png?extra=lRR4BarjaYhgNjfZ-YmDgOLPJSWUwGeEW2QiT4D2HXQwcXm6p9icIWJ7NNLeyqhFt5M0MPy_44-otDaVLUXNcWlLf3kd9cvfUq0jlV8d2MYJkUfm_hzIf_kvydrEfM0ocPv5SxDy0dN0vpe6gu9tlFAjYw',
     name: 'Bath Room',
   },
   {
     imgUrl:
-      'https://psv4.userapi.com/c856328/u271414291/docs/d8/44717110d335/5.png?extra=_vPN3c8mzCUrl3OUZtPbL_IDAUGc5F_Hsq0Zw24R_MMATFunA_5vXGAXkCboOhRmjesECLGq86yQE_KLfamCBDUU5VhjUbhIelh1sF582bSuRP-VuD4EqME9n1cnLEQChx_tvAUp6wx6XXRk7kKuJwQd',
+      'https://psv4.userapi.com/c856328/u271414291/docs/d8/b1c4f6033c7b/5.png?extra=mMJQMu8quZfg0fr9aUwIJPa8KvV0dNFWQE-9zWkMcnH-qWCZnw3-TVtHHPgTJVbD4GmCPTKXVH6r2pi02iy5MaJSpqr3AcYZYPdj25CDOs1OtiI2PjKAYDPJMMUEyt9HYsbhZBNfWcQB8EEdVaqFF0Dj',
     name: 'Bed Room',
   },
   {
     imgUrl:
-      'https://psv4.userapi.com/c856328/u271414291/docs/d12/f577d6964f10/6.png?extra=NMajb5jmSCxYRz4nLGnB8vf5Af7DAEkAodpw6JkCqkhG_IetmpTAvu5ATAOo5fgy8q3URQKgvesbg3AxKSJqjUpxPX2p14nTZapsu5GHov2rYZa5u_oUPeeZkcZSGQ3doRJtxlaiTml0_IGg3DEt3x5u',
+      'https://psv4.userapi.com/c856328/u271414291/docs/d12/7dc781c10a5b/6.png?extra=-q8w17wg1CEzkRsR7KiN1dhEIKjMjgla3y__EgaVZ7L5ZPIRyX6NHqjuZ-TalmMQCCnigZriPYwcBJhqO0qVZs2SwRwxVCY7tzsxZqE0Rto9jQvMYIE8tdU1TX0RyEV-ucs2y7o7pJfl6Ds0vn6b22o2',
     name: 'Toilet Room',
   },
   {
     imgUrl:
-      'https://psv4.userapi.com/c856328/u271414291/docs/d13/ce6cf6d8f891/7.png?extra=bFUSy6NTh9fI6TO4nYznieozypDFKzQaxkmjF0ScAaqPHUTlQK1kdHNE87mwUiLsZyzhSreyHyg8NQODlzd7NSISHMfYEgErDIF2dH41Wc0zppdNjWXacxwVgWkABWS4Xon-bKciQQ6yXzXjNxugr0Ta',
+      'https://psv4.userapi.com/c856328/u271414291/docs/d13/7e2c9ee3be44/7.png?extra=097UgT1x8mpWgyZ-npc3VYCeiirxBoN6BhUd7s9rcgg_gOQOqF31SYSklaymKRAT6ghV9NFkSboUfLx9x6vLa0jcx6c4PBN3ni4B53ECWT4gsuy_YZDRlkWGCdExYD7cN8N0oK265ch44WI-4pONkCR9',
     name: 'Kids Room',
   },
 ];

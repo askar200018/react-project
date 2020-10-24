@@ -4,7 +4,6 @@ import _ from 'lodash/fp';
 import styles from './Registration.module.scss';
 import { Link, useHistory } from 'react-router-dom';
 import { userCreate } from '../../api/user';
-import { InputType } from 'zlib';
 
 interface Props {}
 

@@ -11,10 +11,10 @@ export interface Room {
 }
 
 export enum RoomType {
-  'Bathroom',
-  'Bedroom',
-  'Toiletroom',
-  'Livingroom',
-  'Kitchenroom',
-  'Kidsroom',
+  Bathroom = 'Bathroom',
+  Bedroom = 'Bedroom',
+  Toiletroom = 'Toiletroom',
+  Livingroom = 'Livingroom',
+  Kitchenroom = 'Kitchenroom',
+  Kidsroom = 'Kidsroom',
 }

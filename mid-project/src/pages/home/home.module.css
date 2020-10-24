@@ -5,17 +5,18 @@
 .header {
   text-align: center;
   height: 100vh;
-  background: url(./images/background-2.jpg) no-repeat center center fixed;
+  background: url(https://image.freepik.com/free-photo/modern-living-room-interior-background-dark-wall-scandinavian-style-3d-illustration-3d-rendering_208753-98.jpg)
+    no-repeat center center fixed;
   background-size: cover;
   display: flex;
 }
 .wrapper_title {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 500px;
   width: 100%;
-  background-color: hsl(133, 13%, 42%, 0.7);
+  /* background-color: hsl(133, 13%, 42%, 0.7); */
   height: 200px;
 }
 .title {
@@ -24,7 +25,9 @@
   opacity: 1;
   color: #fff;
   display: flex;
+  margin-right: 50px;
   align-items: center;
+  /* justify-content: center; */
 }
 .hero {
   display: flex;
