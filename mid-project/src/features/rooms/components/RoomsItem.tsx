@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { act } from 'react-dom/test-utils';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useActiveUser } from '../../../contexts/ActiveUserContext';
 import { Room } from '../../../models/room.model';
 import styles from './RoomsItem.module.scss';
@@ -19,6 +19,7 @@ const findRoom = (rooms: Room[], room: Room): boolean => {
 
 const RoomsItem = ({ room, index, houseId, isAddedInitial }: Props) => {
   // console.log(room, 'props room');
+  const location = useLocation();
   const { activeUser, setActiveUser } = useActiveUser()!;
   const [isAdded, setIsAdded] = useState(isAddedInitial);
   console.log('isAddedInitial', isAddedInitial);
@@ -43,8 +44,8 @@ const RoomsItem = ({ room, index, houseId, isAddedInitial }: Props) => {
     setIsAdded(false);
   };
   useEffect(() => {
-    setIsAdded(isAddedInitial);
-  }, [isAddedInitial]);
+    setIsAdded(false);
+  }, [location]);
   return (
     <div className={styles.card}>
       <div className={styles.card_pic_wrap}>
