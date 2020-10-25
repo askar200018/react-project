@@ -5,7 +5,13 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+.houselogo{
+  position:fixed;
+  left:0;
+  top:0;
+  width: 80px;
+  height: 80px;
+}
 body {
   font-family: 'Nunito', sans-serif;
   color: #384047;

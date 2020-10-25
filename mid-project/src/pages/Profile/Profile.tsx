@@ -7,13 +7,18 @@ interface Props {}
 const Profile = (props: Props) => {
   const { activeUser, setActiveUser } = useActiveUser()!;
   return (
-    <div className="wrapper-profile">
-      <h1 className="active-user">{activeUser.email}</h1>
-      <h1 className="active-user">{activeUser.name}</h1>
-      <h1 className="active-user">{activeUser.password}</h1>
-      <h1 className="active-user">{activeUser.profession}</h1>
+    <div className="q">
+        <div className="wrapper">
+        <form className="contact-form" >
+          <div className="input-fields">
+            <input type="text" onChange={(e)=>{activeUser.email=e.target.value}} name="name" className="input" placeholder="Name" />
+            <input type="text" onChange={(e)=>{activeUser.name=e.target.value}} name="email" className="input" placeholder="${activeUser.name}" />
+            <input type="text" onChange={(e)=>{activeUser.password=e.target.value}}name="phone" className="input" placeholder="Phone" />
+            </div>
+        </form>
+      </div>
     </div>
   );
-};
+}
 
 export default Profile;
