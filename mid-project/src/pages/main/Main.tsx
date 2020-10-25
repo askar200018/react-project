@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Main.scss';
 import _ from 'lodash/fp';
 
-import backgroundImg from './images/background.jpg';
+//import backgroundImg from './images/background.jpg';
 import img1 from './images/img1.webp';
 import img2 from './images/img2.webp';
 import img3 from './images/img3.webp';
@@ -15,22 +15,6 @@ interface Props {}
 export const Main = (props: Props) => {
   return (
     <>
-      <div className="nav-home">
-        <div className="nav-home-items">
-          <div className="nav-home-item">Create Project</div>
-          <div className="nav-home-item">Product Selector</div>
-          <div className="nav-home-item">Project Guide</div>
-          <div className="nav-home-item">Brands</div>
-          <div className="nav-home-item">News</div>
-          <div className="nav-home-item">Drawings</div>
-        </div>
-        <div className="nav-home-items">
-          <div className="nav-home-item">EN</div>
-          <div className="nav-home-item">RU</div>
-          <div className="nav-home-item">KZ</div>
-        </div>
-      </div>
-      <img className="home-img" src={backgroundImg} />
       <div className="content-wrapper">
         <div className="content-block">
           <h2 className="content-header big">Projects + Specs</h2>
