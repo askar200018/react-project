@@ -36,7 +36,7 @@ export const Login = (props: Props) => {
       localStorage.setItem('loggedIn', JSON.stringify(true));
       localStorage.setItem('activeUser', JSON.stringify(activeUser));
       setIsLoggedIn(true);
-      history.push('/');
+      history.push('/create');
     } else {
       alert('incorrect');
     }

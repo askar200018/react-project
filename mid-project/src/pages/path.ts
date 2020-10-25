@@ -5,10 +5,10 @@ export const paths = {
   create: () => '/create',
   rooms: () => '/rooms',
   roomDetail: (id: string) => `/rooms/${id}`,
-  company: () => '/company',
   contacts: () => '/contacts',
   main: () => '/main',
   profile: () => '/profile',
+  catalog: ()=> '/catalog',
   /**
    * @example
    * user: (username = ':username') => `/@${username}`,
