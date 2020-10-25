@@ -3,7 +3,7 @@ import { Pages } from './pages';
 
 import { useLocation } from 'react-router-dom';
 import { Navbar } from './ui/navbar';
-import { getActiveUser } from './api/user';
+import { getActiveUser, userList } from './api/user';
 import { IsLoggedInContext } from './contexts/IsLoggedIn';
 import { InitialRooms } from './data/rooms.mock';
 import { ActiveUserContext } from './contexts/ActiveUserContext';
@@ -11,7 +11,7 @@ import { ActiveUserContext } from './contexts/ActiveUserContext';
 export const RoomsContext = React.createContext(InitialRooms);
 
 export const App: React.FC = () => {
-  console.log('initial rooms', JSON.stringify(InitialRooms));
+  console.log('initial rooms', userList());
   const isLoggedFunction = (): boolean => {
     if (localStorage.getItem('loggedIn')) {
       return true;

@@ -1,6 +1,16 @@
 [
   {
-    "name": "name",
-    "surname": "surname"
+    "email": "string",
+    "password": "string",
+    "name": "string",
+    "profession": "Profession",
+    "houses": []
+  },
+  {
+    "email": "askar@mail.ru",
+    "password": "askar",
+    "name": "askar",
+    "profession": "Developer",
+    "houses": []
   }
 ]

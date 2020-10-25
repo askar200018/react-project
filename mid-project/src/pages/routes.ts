@@ -34,7 +34,7 @@ export const ROUTES: RouteConfig[] = [
     component: CreateHome,
   },
   {
-    path: paths.roomDetail(':id'),
+    path: paths.roomDetail(':houseId', ':id'),
     exact: true,
     component: RoomsDetail,
   },

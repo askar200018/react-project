@@ -6,5 +6,5 @@ export interface User {
   password: string;
   name: string;
   profession: Profession;
-  houses?: House[];
+  houses: House[];
 }

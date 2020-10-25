@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styles from './Login.module.scss';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
@@ -6,6 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { userList } from '../../api/user';
 import { User } from '../../models/user.model';
 import { IsLoggedInContext } from '../../contexts/IsLoggedIn';
+import { useActiveUser } from '../../contexts/ActiveUserContext';
 
 interface Props {}
 interface IForm {
@@ -15,6 +16,8 @@ interface IForm {
 export const useIsLogged = () => React.useContext(IsLoggedInContext);
 
 export const Login = (props: Props) => {
+  const [errorUser, setErrorUser] = useState('');
+  const { activeUser, setActiveUser } = useActiveUser()!;
   const inputEl = useRef<HTMLInputElement>(null);
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory();
@@ -27,18 +30,18 @@ export const Login = (props: Props) => {
   }, []);
 
   const onSubmit = (data: IForm) => {
-    const users = JSON.parse(userList());
+    const users = userList();
     const activeUser = users.find((user: User) => {
       return data.email === user.email && data.password === user.password;
     });
     if (!!activeUser) {
-      localStorage.setItem('token', JSON.stringify(true));
       localStorage.setItem('loggedIn', JSON.stringify(true));
       localStorage.setItem('activeUser', JSON.stringify(activeUser));
+      setActiveUser(activeUser);
       setIsLoggedIn(true);
       history.push('/');
     } else {
-      alert('incorrect');
+      setErrorUser('Email or password are incorrect!');
     }
   };
 
@@ -93,6 +96,9 @@ export const Login = (props: Props) => {
           {_.get('password.type', errors) === 'minLength' && (
             <p className={styles.error}>Password should be greater than 5 characters</p>
           )}
+        </div>
+        <div className={styles.formfield}>
+          <p className={styles.error}>{errorUser}</p>
         </div>
         <button type="submit">Login</button>
       </form>

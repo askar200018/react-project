@@ -45,16 +45,21 @@ const getNextLink = (name: string): string => {
 };
 
 const RoomsDetail = (props: Props) => {
-  console.log('new rooms');
-  const match = useRouteMatch<{ id: string }>();
+  // console.log('new rooms');
+  const match = useRouteMatch<{ houseId: string; id: string }>();
   const roomName = match.params.id;
   const roomType = getRoomType(roomName);
   const rooms = useContext(RoomsContext);
   const newRooms = rooms.filter((room) => room.roomType === roomType);
-  console.log(rooms, 'new rooms');
+  // console.log(rooms, 'new rooms');
   return (
     <div>
-      <Rooms rooms={newRooms} name={roomName} link={getNextLink(roomName)} />
+      <Rooms
+        rooms={newRooms}
+        name={roomName}
+        link={getNextLink(roomName)}
+        houseId={+match.params.houseId}
+      />
     </div>
   );
 };

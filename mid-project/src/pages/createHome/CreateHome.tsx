@@ -8,6 +8,11 @@ import { useHistory } from 'react-router';
 
 interface Props {}
 
+interface IForm {
+  name: string;
+  description: string;
+}
+
 const CreateHome = (props: Props) => {
   const inputEl = useRef<HTMLInputElement>(null);
   const history = useHistory();
@@ -20,16 +25,13 @@ const CreateHome = (props: Props) => {
     }
   }, []);
 
-  const onSubmit = (data: House) => {
+  const onSubmit = (data: IForm) => {
     console.log(data);
-    if (activeUser.houses) {
-      activeUser.houses.push(data);
-    } else {
-      activeUser.houses = [];
-      activeUser.houses.push(data);
-    }
+    const houseId = activeUser.houses.length;
+    const newHouse = { ...data, rooms: [], id: houseId };
+    activeUser.houses.push(newHouse);
+    history.push(`/rooms/${houseId}/Bathroom`);
     localStorage.setItem('activeHouse', JSON.stringify(activeUser.houses.length));
-    history.push('/rooms/Bathroom');
   };
   return (
     <>

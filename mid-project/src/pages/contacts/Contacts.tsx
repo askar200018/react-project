@@ -18,7 +18,8 @@ export const Contacts = (props: Props) => {
             <input type="text" className="input" placeholder="Phone" />
           </div>
           <div className="msg">
-            <textarea placeholder="Message">Message</textarea>
+            <textarea defaultValue="Message" />
+            Message
             <div className="btn">Send</div>
           </div>
         </div>

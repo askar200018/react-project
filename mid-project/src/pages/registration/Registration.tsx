@@ -1,17 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
 import styles from './Registration.module.scss';
 import { Link, useHistory } from 'react-router-dom';
 import { userCreate } from '../../api/user';
+import { Profession } from '../../models/profession.enum';
 
 interface Props {}
-
-export enum Profession {
-  Designer,
-  Developer,
-  User,
-}
 
 export interface IForm {
   name: string;
@@ -26,6 +21,7 @@ export const Registration = (props: Props) => {
   const inputEl = useRef<HTMLInputElement>(null);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { register, handleSubmit, errors } = useForm();
+  const [errorUser, setErrorUser] = useState('');
   const history = useHistory();
 
   useEffect(() => {
@@ -35,9 +31,12 @@ export const Registration = (props: Props) => {
   }, []);
 
   const onSubmit = (data: IForm) => {
+    const newUser = { ...data, houses: [] };
     console.log(data);
-    if (userCreate(data)) {
+    if (userCreate(newUser)) {
       history.push('/signin');
+    } else {
+      setErrorUser('User with this email already registered!');
     }
   };
   return (
@@ -118,6 +117,9 @@ export const Registration = (props: Props) => {
           {_.get('password.type', errors) === 'minLength' && (
             <p className={styles.error}>Password should be greater than 5 characters</p>
           )}
+        </div>
+        <div className={styles.formfield}>
+          <p className={styles.error}>{errorUser}</p>
         </div>
         <button type="submit">Register</button>
       </form>

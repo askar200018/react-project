@@ -7,7 +7,7 @@ export interface Room {
   imageUrl: string;
   cost: number;
   roomType: RoomType;
-  comments?: Comment[];
+  comments: Comment[];
 }
 
 export enum RoomType {

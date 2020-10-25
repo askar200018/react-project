@@ -1,5 +1,5 @@
 export enum Profession {
-  Designer,
-  Developer,
-  User,
+  Designer = 'Designer',
+  Developer = 'Developer',
+  User = 'User',
 }

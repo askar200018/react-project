@@ -1,5 +1,15 @@
 .wrapper-profile {
   padding-top: 100px;
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+  h2 {
+    color: #5d7963;
+  }
+  .error {
+    color: red;
+  }
 }
 .active-user {
   color: red;
