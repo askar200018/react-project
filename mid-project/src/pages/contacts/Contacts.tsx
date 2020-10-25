@@ -30,11 +30,12 @@ export default function Contacts({}: Props): ReactElement {
   const changePhone = ((event:any) => setForm({...informations, phone: event.target.value}))
   const changeMessage = ((event:any) => setForm({...informations, message: event.target.value}))
   
-  const inputRef = useRef<HTMLInputElement>(null)
+  const inputEl = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    // inputRef.current?.focus()   
-    // inputRef.current?.focus()
-  }, [])
+    if (inputEl && inputEl.current) {
+      inputEl.current.focus();
+    }
+  }, []);
 
   const clickHandler = (information:Information) =>{
     alert(`Thank you, ${information.name}. Your "${information.message}" has sent!`)
@@ -52,9 +53,9 @@ export default function Contacts({}: Props): ReactElement {
         <div className="wrapper">
         <form className="contact-form" >
           <div className="input-fields">
-            <input type="text" onChange={(e)=>{information.name=e.target.value}} ref={inputRef} name="name" className="input" placeholder="Name" />
+            <input type="text" onChange={(e)=>{information.name=e.target.value}} ref={inputEl} name="name" className="input" placeholder="Name" />
             <input type="text" onChange={(e)=>{information.email=e.target.value}} name="email" className="input" placeholder="Email" />
-            <input type="text" onChange={(e)=>{information.phone=e.target.value}}name="phone" className="input" placeholder="Phone" />
+            <input type="text" onChange={(e)=>{information.phone=e.target.value}} name="phone" className="input" placeholder="Phone" />
             </div>
             <div className="msg">
             <textarea onChange={(e)=>{information.message=e.target.value}} placeholder="Message" name="message"></textarea>
