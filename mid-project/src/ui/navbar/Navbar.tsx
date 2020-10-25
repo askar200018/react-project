@@ -18,12 +18,8 @@ const links: LinkInterface[] = [
     name: 'Home',
   },
   {
-    path: '/company',
-    name: 'About us',
-  },
-  {
-    path: '/main',
-    name: 'Main',
+    path: '/profile',
+    name: 'Profile',
   },
   {
     path: '/contacts',
@@ -68,7 +64,13 @@ export const Navbar = (props: Props) => {
   return (
     <div className={styles.nav} style={navStyle}>
       <div className={styles.logo}>
-        <Link to="/">LOGO</Link>
+        <Link to="/">
+          <img
+            src="https://www.theludlownyc.com/accessibility/home.jpg"
+            className={styles.houselogo}
+            alt="logo"
+          />
+        </Link>
       </div>
       <div className={styles.menu}>
         <ul className="menu-list">
@@ -95,8 +97,8 @@ export const Navbar = (props: Props) => {
           </li>
           <li>
             {isLoggedIn && (
-              <Link className={styles.auth} to="/profile">
-                Profile
+              <Link className={styles.auth} to="/catalog">
+                Catalog
               </Link>
             )}
           </li>

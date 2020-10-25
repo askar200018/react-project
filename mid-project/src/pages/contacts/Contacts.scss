@@ -7,8 +7,11 @@
   font-family: 'Roboto', sans-serif;
 }
 .q {
-  background-size: cover;
   height: 100vh;
+  background: url(./images/photo_2020.jpg)
+  no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
 }
 
 .wrapper {
@@ -21,7 +24,7 @@
 .contact-form {
   max-width: 550px;
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   padding: 30px;
   border-radius: 5px;
   display: flex;
@@ -71,4 +74,12 @@
   .msg {
     width: 100%;
   }
+}
+.header {
+  text-align: center;
+  height: 100vh;
+  background: url(./images/photo_2020.jpg)
+    no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
 }

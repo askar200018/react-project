@@ -1,4 +1,6 @@
 .wrapper-profile {
+  background: url(./images/photo_2020.jpg) center no-repeat;
+  background-size: cover;
   padding-top: 100px;
   .contact-form {
     display: flex;
@@ -10,7 +12,27 @@
   .error {
     color: red;
   }
+  height: 100vh;
+  //background: url(./images/photo_2020.jpg)
+  //no-repeat center center fixed;
+  //background-size: cover;
+  //display: flex;
 }
 .active-user {
-  color: red;
+  width: 48%;
+  margin: 10px 0;
+  background: transparent;
+  border: 0;
+  padding: 10px;
+  color: #5d7963;
+  width: 100%;
+}
+
+.btn-profile {
+  color: #5d7963;
+  border: 1px solid #5d7963;
+  &-edit {
+    color: #5d7963;
+    border: 1px solid #5d7963;
+  }
 }

@@ -63,8 +63,16 @@ const Profile = (props: Props) => {
               )}
             </div>
           </div>
-          {!isEdit && <button onClick={() => setIsEdit(true)}>Edit</button>}
-          {isEdit && <button type="submit">Submit</button>}
+          {!isEdit && (
+            <button className="btn-profile-edit" onClick={() => setIsEdit(true)}>
+              Edit
+            </button>
+          )}
+          {isEdit && (
+            <button className="btn-profile" type="submit">
+              Submit
+            </button>
+          )}
         </form>
       </div>
     </div>

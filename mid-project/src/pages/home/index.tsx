@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './home.module.css';
 import { Link } from 'react-router-dom';
-import RoomsFeature from '../../ui/roomsFeature/RoomsFeature';
+
 
 export const Home: React.FC = () => {
   return (
@@ -16,7 +16,6 @@ export const Home: React.FC = () => {
           </div> */}
         </div>
       </div>
-      <RoomsFeature />
     </main>
   );
 };
