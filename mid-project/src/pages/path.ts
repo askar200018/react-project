@@ -10,6 +10,7 @@ export const paths = {
   main: () => '/main',
   profile: () => '/profile',
   catalog: () => '/catalog',
+  houses: () => '/houses',
   /**
    * @example
    * user: (username = ':username') => `/@${username}`,

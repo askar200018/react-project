@@ -104,6 +104,13 @@ export const Navbar = (props: Props) => {
           </li>
           <li>
             {isLoggedIn && (
+              <Link className={styles.auth} to="/houses">
+                Houses
+              </Link>
+            )}
+          </li>
+          <li>
+            {isLoggedIn && (
               <Link className={styles.auth} to="/" onClick={logout}>
                 Log out
               </Link>

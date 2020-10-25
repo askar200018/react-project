@@ -21,7 +21,7 @@ const Rooms = ({ rooms, name, link, houseId }: Props) => {
       <h1 className={styles.title}>{name}</h1>
       <div className={styles.wrap}>
         {rooms.map((room, index) => {
-          return <RoomsItem room={room} index={index} houseId={houseId} />;
+          return <RoomsItem room={room} index={index} houseId={houseId} isAddedInitial={false} />;
         })}
       </div>
       <div className={styles.rooms_link}>

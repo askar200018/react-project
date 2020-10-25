@@ -7,6 +7,7 @@ import styles from './RoomsItem.module.scss';
 interface Props {
   index: number;
   room: Room;
+  isAddedInitial: boolean;
   houseId: number;
 }
 
@@ -16,13 +17,14 @@ const findRoom = (rooms: Room[], room: Room): boolean => {
   return !!check;
 };
 
-const RoomsItem = ({ room, index, houseId }: Props) => {
-  console.log(room, 'props room');
+const RoomsItem = ({ room, index, houseId, isAddedInitial }: Props) => {
+  // console.log(room, 'props room');
   const { activeUser, setActiveUser } = useActiveUser()!;
-  const [isAdded, setIsAdded] = useState(false);
+  const [isAdded, setIsAdded] = useState(isAddedInitial);
+  console.log('isAddedInitial', isAddedInitial);
   const addRoom = (addedRoom: Room) => {
     activeUser.houses[houseId].rooms = [...activeUser.houses[houseId].rooms, addedRoom];
-    console.log('activeUser', activeUser);
+    // console.log('activeUser', activeUser);
     setActiveUser(activeUser);
     localStorage.setItem('activeUser', JSON.stringify(activeUser));
     setIsAdded(true);
@@ -35,19 +37,23 @@ const RoomsItem = ({ room, index, houseId }: Props) => {
       ...activeUser.houses[houseId].rooms.slice(0, roomIndex),
       ...activeUser.houses[houseId].rooms.slice(roomIndex + 1),
     ];
-    console.log('activeUser', activeUser);
+    // console.log('activeUser', activeUser);
     setActiveUser(activeUser);
     localStorage.setItem('activeUser', JSON.stringify(activeUser));
     setIsAdded(false);
   };
+  useEffect(() => {
+    setIsAdded(isAddedInitial);
+  }, [isAddedInitial]);
   return (
-    <div className={styles.card} key={index}>
+    <div className={styles.card}>
       <div className={styles.card_pic_wrap}>
         <Link to="/">
           <img src={room.imageUrl} alt="A leafy plant" />
         </Link>
       </div>
       <div className={styles.card_content}>
+        {JSON.stringify(isAddedInitial)}
         <h3 className={styles.card_name}>{room.name}</h3>
         {!isAdded && (
           <button className={styles.room_btn} onClick={() => addRoom(room)}>

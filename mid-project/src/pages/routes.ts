@@ -11,6 +11,7 @@ import Contacts from './contacts/Contacts';
 import { Main } from './main/Main';
 import Profile from './Profile/Profile';
 import { Catalog } from './catalog/Catalog';
+import Houses from './houses';
 
 export const ROUTES: RouteConfig[] = [
   {
@@ -62,5 +63,10 @@ export const ROUTES: RouteConfig[] = [
     path: paths.catalog(),
     exact: true,
     component: Catalog,
+  },
+  {
+    path: paths.houses(),
+    exact: true,
+    component: Houses,
   },
 ];
