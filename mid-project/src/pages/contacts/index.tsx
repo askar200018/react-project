@@ -16,11 +16,23 @@ interface Information {
 }
 // const Information: Information[]=[{name:"Nurai", email:"nurai@gmail.com", phone:87718449233, message:""}]
 const informations: Information[] = [
-  { id: 0, name: 'Nurai', email: 'nurai@gmail.com', phone: '87718449233', message: '' },
+  {
+    id: 0,
+    name: 'Nurai',
+    email: 'nurai@gmail.com',
+    phone: '87718449233',
+    message: '',
+  },
 ];
 
-export default function Contacts({}: Props): ReactElement {
-  const information: Information = { id: 0, name: '', email: '', phone: '', message: '' };
+export default function ContactsPage({}: Props): ReactElement {
+  const information: Information = {
+    id: 0,
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  };
   const [informations, setForm] = useState({
     name: '',
     email: '',
@@ -28,10 +40,14 @@ export default function Contacts({}: Props): ReactElement {
     message: '',
   });
 
-  const changeName = (event: any) => setForm({ ...informations, name: event.target.value });
-  const changeEmail = (event: any) => setForm({ ...informations, email: event.target.value });
-  const changePhone = (event: any) => setForm({ ...informations, phone: event.target.value });
-  const changeMessage = (event: any) => setForm({ ...informations, message: event.target.value });
+  const changeName = (event: any) =>
+    setForm({ ...informations, name: event.target.value });
+  const changeEmail = (event: any) =>
+    setForm({ ...informations, email: event.target.value });
+  const changePhone = (event: any) =>
+    setForm({ ...informations, phone: event.target.value });
+  const changeMessage = (event: any) =>
+    setForm({ ...informations, message: event.target.value });
 
   const inputEl = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -41,7 +57,9 @@ export default function Contacts({}: Props): ReactElement {
   }, []);
 
   const clickHandler = (information: Information) => {
-    alert(`Thank you, ${information.name}. Your "${information.message}" has sent!`);
+    alert(
+      `Thank you, ${information.name}. Your "${information.message}" has sent!`,
+    );
 
     // informations.push(information)
     // console.log('name',information.name)
@@ -92,7 +110,11 @@ export default function Contacts({}: Props): ReactElement {
               placeholder="Message"
               name="message"
             ></textarea>
-            <button type="submit" className="btn" onClick={() => clickHandler(information)}>
+            <button
+              type="submit"
+              className="btn"
+              onClick={() => clickHandler(information)}
+            >
               Send
             </button>
           </div>

@@ -9,16 +9,19 @@ import img2 from './images/img2.webp';
 import img3 from './images/img3.webp';
 import img4 from './images/img4.webp';
 import img5 from './images/img5.webp';
+import { Button } from 'antd';
 
 interface Props {}
 
-export const Main = (props: Props) => {
+const MainPage = (props: Props) => {
   return (
     <>
       <div className="content-wrapper">
         <div className="content-block">
           <h2 className="content-header big">Projects + Specs</h2>
-          <h3 className="content-header">The latest projects with product specifications</h3>
+          <h3 className="content-header">
+            The latest projects with product specifications
+          </h3>
           <div className="content-main">
             <div className="photos">
               <div className="photo">
@@ -34,17 +37,23 @@ export const Main = (props: Props) => {
             <div className="description">
               <h1 className="description-header">Old Town Modern</h1>
               <p className="description-designers">
-                By dSPACE Studio • Private Houses • Old Town, Chicago, IL, USA • 2016
+                By dSPACE Studio • Private Houses • Old Town, Chicago, IL, USA •
+                2016
               </p>
               <p className="description-info">
-                This Old Town home was built in 1972. Designed by Bruce Graham, architect of the
-                Sears Tower, it remained unaltered by the original owner until our client purchased
-                it. The exterior had deteriorated beyond repair and the interior needed a new floor.
+                This Old Town home was built in 1972. Designed by Bruce Graham,
+                architect of the Sears Tower, it remained unaltered by the
+                original owner until our client purchased it. The exterior had
+                deteriorated beyond repair and the interior needed a new floor.
               </p>
               <div className="description-block">
                 <h5 className="description-header">Product spec sheet</h5>
-                <h6 className="orange">Fireplace and Wall cladding, Kitchen Backsplash</h6>
-                <h6 className="black">Kitchen Backsplash, Pearl Grey Marbleby Stone Source</h6>
+                <h6 className="orange">
+                  Fireplace and Wall cladding, Kitchen Backsplash
+                </h6>
+                <h6 className="black">
+                  Kitchen Backsplash, Pearl Grey Marbleby Stone Source
+                </h6>
                 <h6 className="orange">Kitchen peninsula sconce</h6>
                 <h6 className="black">Arc Wall lamp 33“ by Allied Maker</h6>
                 <h6 className="orange">Kitchen and North Bar countertop</h6>
@@ -61,3 +70,5 @@ export const Main = (props: Props) => {
     </>
   );
 };
+
+export default MainPage;

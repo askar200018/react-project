@@ -44,7 +44,7 @@ const getNextLink = (name: string): string => {
   }
 };
 
-const RoomsDetail = (props: Props) => {
+const RoomsDetailPage = (props: Props) => {
   // console.log('new rooms');
   const match = useRouteMatch<{ houseId: string; id: string }>();
   const roomName = match.params.id;
@@ -64,4 +64,4 @@ const RoomsDetail = (props: Props) => {
   );
 };
 
-export default RoomsDetail;
+export default RoomsDetailPage;

@@ -1,35 +1,49 @@
 import React, { useEffect, useState } from 'react';
+import { connect, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { IsLoggedInContext } from '../../contexts/IsLoggedIn';
 import styles from './Navbar.module.css';
 
-interface Props {}
+import { logout } from 'features/auth/models/isLoggedInSlice';
+import rootReducer from 'reducers';
+import { Action } from 'redux';
+
+const mapDispatch = { logoutAction: logout };
+interface Props {
+  logoutAction: () => Action;
+}
 
 export const useIsLogged = () => React.useContext(IsLoggedInContext);
 
 interface LinkInterface {
   path: string;
   name: string;
+  isNeedLoggedIn: boolean;
 }
 
 const links: LinkInterface[] = [
   {
     path: '/',
     name: 'Home',
+    isNeedLoggedIn: false,
   },
   {
     path: '/profile',
     name: 'Profile',
+    isNeedLoggedIn: true,
   },
   {
     path: '/contacts',
     name: 'Contacts',
+    isNeedLoggedIn: false,
   },
 ];
 
-export const Navbar = (props: Props) => {
+const Navbar = ({ logoutAction }: Props) => {
+  const isLoggedIn = useSelector((state: any) => state.isLoggedIn);
+  console.log('isLoggedInState', isLoggedIn);
   const location = useLocation();
-  const { isLoggedIn, setIsLoggedIn } = useIsLogged()!;
+  // const { isLoggedIn, setIsLoggedIn } = useIsLogged()!;
   const initialColor = location.pathname === '/' ? 'inherit' : '#2D6A4F';
   const [background, setBackground] = useState(initialColor);
   const navStyle = {
@@ -37,14 +51,16 @@ export const Navbar = (props: Props) => {
   };
 
   const scrollEvent = () => {
-    const backgroundcolor = window.scrollY < 140 && location.pathname === '/' ? 'inherit' : '#000';
+    const backgroundcolor =
+      window.scrollY < 140 && location.pathname === '/' ? 'inherit' : '#000';
 
     setBackground(backgroundcolor);
   };
 
   const logout = () => {
     localStorage.removeItem('loggedIn');
-    setIsLoggedIn(false);
+    logoutAction();
+    // setIsLoggedIn(false);
   };
 
   useEffect(() => {
@@ -77,7 +93,16 @@ export const Navbar = (props: Props) => {
           {links.map((link, index) => {
             return (
               <li key={index}>
-                <Link to={link.path}>{link.name}</Link>
+                {link.isNeedLoggedIn && isLoggedIn && (
+                  <Link className={styles.auth} to={link.path}>
+                    {link.name}
+                  </Link>
+                )}
+                {!link.isNeedLoggedIn && (
+                  <Link className={styles.auth} to={link.path}>
+                    {link.name}
+                  </Link>
+                )}
               </li>
             );
           })}
@@ -121,3 +146,5 @@ export const Navbar = (props: Props) => {
     </div>
   );
 };
+
+export default connect(null, mapDispatch)(Navbar);

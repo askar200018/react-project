@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/dom": "^7.22.2",
     "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.8",
@@ -12,27 +13,34 @@
     "@types/node": "^14.14.2",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
+    "@types/react-redux": "^7.1.12",
+    "antd": "^4.9.4",
+    "axios": "^0.21.0",
     "effector": "^21.5.0",
     "effector-react": "^21.0.6",
+    "json-server": "^0.16.3",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-hook-form": "^6.9.5",
+    "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4",
-    "yarn": "^1.22.10"
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json",
+    "lint": "eslint --fix .",
+    "lint-check": "eslint ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,7 +59,24 @@
   },
   "devDependencies": {
     "@types/react-router-config": "^5.0.1",
-    "@types/react-router-dom": "^5.1.6"
+    "@types/react-router-dom": "^5.1.6",
+    "@typescript-eslint/eslint-plugin": "4.0.0",
+    "@typescript-eslint/parser": "4.0.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-config-react-app": "6.0.0",
+    "eslint-plugin-flowtype": "5.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jest": "24.0.0",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-react": "7.20.3",
+    "eslint-plugin-react-hooks": "4.0.8",
+    "eslint-plugin-testing-library": "3.9.0",
+    "prettier": "^2.2.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.3.0",
+    "tslint-react": "^5.0.0"
   },
   "resolutions": {
     "**/@typescript-eslint/eslint-plugin": "^4.1.1",

@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './home.module.css';
 import { Link } from 'react-router-dom';
-import { Main } from '../main/Main';
+import Main from '../main';
 
-export const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
     <main className={styles.page}>
       <div className={styles.header}>
@@ -20,3 +20,5 @@ export const Home: React.FC = () => {
     </main>
   );
 };
+
+export default HomePage;

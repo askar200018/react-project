@@ -40,7 +40,7 @@ const categories: RoomType[] = [
     name: 'Kids Room',
   },
 ];
-export const Catalog = (props: Props) => {
+export const CatalogPage = (props: Props) => {
   return (
     <div className={styles.rooms}>
       <h1 className={styles.title}>All Cateogories</h1>
@@ -63,4 +63,4 @@ export const Catalog = (props: Props) => {
     </div>
   );
 };
-export default Catalog;
+export default CatalogPage;

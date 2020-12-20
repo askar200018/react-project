@@ -1,33 +1,34 @@
 import { RouteConfig } from 'react-router-config';
-import { Home } from './home';
+import { lazy } from 'react';
+
 import { paths } from './path';
-import { Registration } from './registration/Registration';
-import { Login } from './login/Login';
-import CreateHome from './createHome/CreateHome';
-import Rooms from '../features/rooms/Rooms';
-import RoomsDetail from './roomsDetail/RoomsDetail';
-import { path } from 'lodash/fp';
-import Contacts from './contacts/Contacts';
-import { Main } from './main/Main';
-import Profile from './Profile/Profile';
-import { Catalog } from './catalog/Catalog';
-import Houses from './houses';
+import HomePage from './home';
+
+const HousesPage = lazy(() => import('./houses'));
+const ContactsPage = lazy(() => import('./contacts'));
+const RegistrationPage = lazy(() => import('./registration'));
+const LoginPage = lazy(() => import('./login'));
+const CreateHome = lazy(() => import('./createHome'));
+const RoomsDetailPage = lazy(() => import('./roomsDetail'));
+const MainPage = lazy(() => import('./main'));
+const ProfilePage = lazy(() => import('./profile'));
+const CatalogPage = lazy(() => import('./catalog'));
 
 export const ROUTES: RouteConfig[] = [
   {
     path: paths.home(),
     exact: true,
-    component: Home,
+    component: HomePage,
   },
   {
     path: paths.registration(),
     exact: true,
-    component: Registration,
+    component: RegistrationPage,
   },
   {
     path: paths.login(),
     exact: true,
-    component: Login,
+    component: LoginPage,
   },
   {
     path: paths.create(),
@@ -37,36 +38,36 @@ export const ROUTES: RouteConfig[] = [
   {
     path: paths.roomDetail(':houseId', ':id'),
     exact: true,
-    component: RoomsDetail,
+    component: RoomsDetailPage,
   },
   {
     path: paths.rooms(),
     exact: true,
-    component: Home,
+    component: HomePage,
   },
   {
     path: paths.contacts(),
     exact: true,
-    component: Contacts,
+    component: ContactsPage,
   },
   {
     path: paths.main(),
     exact: true,
-    component: Main,
+    component: MainPage,
   },
   {
     path: paths.profile(),
     exact: true,
-    component: Profile,
+    component: ProfilePage,
   },
   {
     path: paths.catalog(),
     exact: true,
-    component: Catalog,
+    component: CatalogPage,
   },
   {
     path: paths.houses(),
     exact: true,
-    component: Houses,
+    component: HousesPage,
   },
 ];

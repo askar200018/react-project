@@ -13,7 +13,7 @@ interface IForm {
   description: string;
 }
 
-const CreateHome = (props: Props) => {
+const CreateHomePage = (props: Props) => {
   const inputEl = useRef<HTMLInputElement>(null);
   const history = useHistory();
   const { activeUser, setActiveUser } = useActiveUser()!;
@@ -31,7 +31,10 @@ const CreateHome = (props: Props) => {
     const newHouse = { ...data, rooms: [], id: houseId };
     activeUser.houses.push(newHouse);
     history.push(`/rooms/${houseId}/Bathroom`);
-    localStorage.setItem('activeHouse', JSON.stringify(activeUser.houses.length));
+    localStorage.setItem(
+      'activeHouse',
+      JSON.stringify(activeUser.houses.length),
+    );
   };
   return (
     <>
@@ -68,4 +71,4 @@ const CreateHome = (props: Props) => {
   );
 };
 
-export default CreateHome;
+export default CreateHomePage;

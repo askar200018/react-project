@@ -11,7 +11,7 @@ interface IForm {
   password: string;
 }
 
-const Profile = (props: Props) => {
+const ProfilePage = (props: Props) => {
   const { activeUser, setActiveUser } = useActiveUser()!;
   const { register, handleSubmit, errors } = useForm();
   const [isEdit, setIsEdit] = useState(false);
@@ -64,7 +64,10 @@ const Profile = (props: Props) => {
             </div>
           </div>
           {!isEdit && (
-            <button className="btn-profile-edit" onClick={() => setIsEdit(true)}>
+            <button
+              className="btn-profile-edit"
+              onClick={() => setIsEdit(true)}
+            >
               Edit
             </button>
           )}
@@ -79,4 +82,4 @@ const Profile = (props: Props) => {
   );
 };
 
-export default Profile;
+export default ProfilePage;

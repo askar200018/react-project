@@ -40,7 +40,8 @@ export const InitialRooms: Room[] = [
       'Bedroom model Wave of the company PROTEAS. The entire bedroom is made of walnut veneer with lacquer details. The bed has side panels painted in black gloss lacquer.',
     cost: 752956,
     like: 9858,
-    imageUrl: 'https://archello.com/thumbs/images/2018/02/03/ultra-geniko-242.1517652478.7593.jpg',
+    imageUrl:
+      'https://archello.com/thumbs/images/2018/02/03/ultra-geniko-242.1517652478.7593.jpg',
     comments: [],
     roomType: RoomType.Bedroom,
   },
@@ -61,7 +62,8 @@ export const InitialRooms: Room[] = [
       'Anti-fog protection through integrated mirror heating Indirect lighting down and up Touch sensor with orientation lighting and dimming function LED life: 50,000 hours High quality crystal mirror (4mm glass thickness)',
     cost: 162956,
     like: 4903,
-    imageUrl: 'https://archello.com/thumbs/images/2020/07/13/1--10-.1594641064.2883.jpg',
+    imageUrl:
+      'https://archello.com/thumbs/images/2020/07/13/1--10-.1594641064.2883.jpg',
     comments: [],
     roomType: RoomType.Bathroom,
   },
@@ -71,7 +73,8 @@ export const InitialRooms: Room[] = [
       'A set of handcrafted products made to realize baths fully suitable for children. All products are totally made in Italy near by Florence. Ceramic shower tray border An extruded ceramic element that allows to realize shower tray borders made by tailored elements. The fire cooking of these elements together with the ceramic covering/floors, allows to have the same color and tone harmonizing the bathroom.',
     cost: 222956,
     like: 3475,
-    imageUrl: 'https://archello.com/thumbs/images/2014/11/06/35552nest-1.1506059037.7227.jpg',
+    imageUrl:
+      'https://archello.com/thumbs/images/2014/11/06/35552nest-1.1506059037.7227.jpg',
     comments: [],
     roomType: RoomType.Bathroom,
   },
@@ -92,7 +95,8 @@ export const InitialRooms: Room[] = [
       'This luxury, bespoke kitchen from Woodstock Furniture features French grey and dark charcoal grey, spray-painted cabinets for a striking contrast with a quartz compac Alaska worktop. A white marble tiled splashback creates an interesting backdrop behind the Mercury range cooker. The Victorian lamppost was sourced from a salvage yard and works well as an island support in the breakfast bar area. Kitchens cost from around £30,000 including VAT',
     cost: 234556,
     like: 3784,
-    imageUrl: 'https://archello.com/thumbs/images/2014/05/12/Twotone-kitchen.1506057903.3689.jpg',
+    imageUrl:
+      'https://archello.com/thumbs/images/2014/05/12/Twotone-kitchen.1506057903.3689.jpg',
     comments: [],
     roomType: RoomType.Kitchenroom,
   },
@@ -102,7 +106,8 @@ export const InitialRooms: Room[] = [
       "The model smart kitchen design by 100% interior special for INSTYLE. The smart kitchen eliminates the possibility of errors. We have created a kitchen that doesn't require precise measurements of the room. The constructions of the modules designed not depend on the mistakes of the builders during the laying of engineering communications. The design of the kitchen elements takes into account possible irregularities of the walls and ceiling. It opens a new horizon. Changes the idea of a premium kitchen. Changes the interior. Changes own life. If you are tired of banal interiors, this kitchen is for you. ",
     cost: 342956,
     like: 9358,
-    imageUrl: 'https://archello.com/thumbs/images/2018/12/25/----1-.1545738801.9785.jpg',
+    imageUrl:
+      'https://archello.com/thumbs/images/2018/12/25/----1-.1545738801.9785.jpg',
     comments: [],
     roomType: RoomType.Kitchenroom,
   },
@@ -112,7 +117,8 @@ export const InitialRooms: Room[] = [
       'A kitchen designed by the famous Ukrainian designer Pavel Vetrov especially for INSTYLE. Original design solutions in combination with the most modern materials allowed us to create this model. There is the island, open shelves, sliding elements and many storage boxes and drawers. The basic model combines itself the various of a complete set and effective design. This lets you customize it for yourself.',
     cost: 182356,
     like: 12348,
-    imageUrl: 'https://archello.com/thumbs/images/2018/12/25/Kitchen-P-2--2-.1545738301.0093.jpg',
+    imageUrl:
+      'https://archello.com/thumbs/images/2018/12/25/Kitchen-P-2--2-.1545738301.0093.jpg',
     comments: [],
     roomType: RoomType.Kitchenroom,
   },
