@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
 import styles from './CreateHome.module.scss';
-import { House } from '../../models/house.interface';
-import { useActiveUser } from '../../contexts/ActiveUserContext';
 import { useHistory } from 'react-router';
+import { House } from 'features/rooms/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'reducers';
+import { addActiveUserHouse } from 'features/auth/models/activeUserSlice';
 
 interface Props {}
 
@@ -14,9 +16,10 @@ interface IForm {
 }
 
 const CreateHomePage = (props: Props) => {
+  const activeUser = useSelector((state: RootState) => state.activeUser);
+  const dispatch = useDispatch();
   const inputEl = useRef<HTMLInputElement>(null);
   const history = useHistory();
-  const { activeUser, setActiveUser } = useActiveUser()!;
   const { register, handleSubmit, errors } = useForm();
 
   useEffect(() => {
@@ -27,14 +30,11 @@ const CreateHomePage = (props: Props) => {
 
   const onSubmit = (data: IForm) => {
     console.log(data);
-    const houseId = activeUser.houses.length;
-    const newHouse = { ...data, rooms: [], id: houseId };
-    activeUser.houses.push(newHouse);
+    const newHouse: House = { ...data, rooms: [], id: 0 };
+    dispatch(addActiveUserHouse(newHouse));
+    console.log('activeUser', activeUser);
+    const houseId = activeUser.houses.length + 1;
     history.push(`/rooms/${houseId}/Bathroom`);
-    localStorage.setItem(
-      'activeHouse',
-      JSON.stringify(activeUser.houses.length),
-    );
   };
   return (
     <>

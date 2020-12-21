@@ -1,4 +1,4 @@
-import { User } from '../models/user.model';
+import { User } from 'features/auth/types';
 import initialUsers from '../data/users.json';
 
 const users: any[] = initialUsers;
@@ -9,7 +9,7 @@ export const userCreate = (user: User): boolean => {
   const check = users.find((u: User) => {
     return user.email === u.email;
   });
-  if (!!check) {
+  if (check) {
     return false;
   } else {
     users.push(user);

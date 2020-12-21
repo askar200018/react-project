@@ -1,6 +1,7 @@
 import { House } from 'features/rooms/types';
 
 export interface User {
+  id: number;
   email: string;
   password: string;
   name: string;

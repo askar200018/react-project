@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './houses.module.scss';
-import { useActiveUser } from '../../contexts/ActiveUserContext';
+import { useSelector } from 'react-redux';
+import { RootState } from 'reducers';
 
 interface Props {}
 
 const Houses = (props: Props) => {
+  const { houses } = useSelector((state: RootState) => state.activeUser);
   const imgUrl = './images/logo.jpg';
-  const { activeUser, setActiveUser } = useActiveUser()!;
-  const [houses, setHouse] = useState(activeUser.houses);
   return (
     <div className={styles.rooms}>
       <h1 className={styles.title}>My Houses</h1>
@@ -18,7 +18,10 @@ const Houses = (props: Props) => {
             <div className={styles.card} key={index}>
               <div className={styles.card_pic_wrap}>
                 <Link to="/">
-                  <img src={require('./images/house.jpg')} alt="A leafy plant" />
+                  <img
+                    src={require('./images/house.jpg')}
+                    alt="A leafy plant"
+                  />
                 </Link>
               </div>
               <div className={styles.card_content}>

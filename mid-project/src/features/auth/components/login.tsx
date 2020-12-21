@@ -1,37 +1,33 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Action } from 'redux';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import _ from 'lodash/fp';
 
 import { login } from '../models/isLoggedInSlice';
+import { loginUser } from '../models/activeUserSlice';
 
 import { useHistory } from 'react-router-dom';
-import { userList } from 'api/user';
-import { IsLoggedInContext } from 'contexts/IsLoggedIn';
-import { useActiveUser } from 'contexts/ActiveUserContext';
 
 import styles from './styles.module.scss';
 import { User } from '../types';
+import { RootState } from 'reducers';
 
-const mapDispatch = { login };
-
-interface Props {
-  login: () => Action;
-}
+interface Props {}
 interface IForm {
   email: string;
   password: string;
 }
-export const useIsLogged = () => React.useContext(IsLoggedInContext);
 
-const Login = ({ login }: Props) => {
-  const [errorUser, setErrorUser] = useState('');
-  const { activeUser, setActiveUser } = useActiveUser()!;
-  const inputEl = useRef<HTMLInputElement>(null);
-  const { register, handleSubmit, errors } = useForm();
+export const Login = () => {
+  const users = useSelector((state: RootState) => state.users);
+  const dispatch = useDispatch();
+
   const history = useHistory();
-  const { isLoggedIn, setIsLoggedIn } = useIsLogged()!;
+  const { register, handleSubmit, errors } = useForm();
+
+  const [errorUser, setErrorUser] = useState('');
+  const inputEl = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (inputEl && inputEl.current) {
@@ -40,17 +36,14 @@ const Login = ({ login }: Props) => {
   }, []);
 
   const onSubmit = (data: IForm) => {
-    const users = userList();
     const activeUser = users.find((user: User) => {
       return data.email === user.email && data.password === user.password;
     });
-    if (!!activeUser) {
-      console.log('work normal');
-      login();
-      localStorage.setItem('loggedIn', JSON.stringify(true));
-      localStorage.setItem('activeUser', JSON.stringify(activeUser));
-      setActiveUser(activeUser);
-      setIsLoggedIn(true);
+    if (activeUser) {
+      dispatch(login());
+      // localStorage.setItem('loggedIn', JSON.stringify(true));
+      // localStorage.setItem('activeUser', JSON.stringify(activeUser));
+      dispatch(loginUser(activeUser));
       history.push('/');
     } else {
       setErrorUser('Email or password are incorrect!');
@@ -103,5 +96,3 @@ const Login = ({ login }: Props) => {
     </form>
   );
 };
-
-export default connect(null, mapDispatch)(Login);

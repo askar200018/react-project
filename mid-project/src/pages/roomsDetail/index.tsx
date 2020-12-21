@@ -1,8 +1,8 @@
+import Rooms from 'features/rooms/Rooms';
+import { RoomType } from 'features/rooms/types';
 import React, { useContext } from 'react';
 import { useRouteMatch } from 'react-router';
 import { RoomsContext } from '../../App';
-import Rooms from '../../features/rooms/Rooms';
-import { RoomType } from '../../models/room.model';
 
 interface Props {}
 

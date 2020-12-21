@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { IsLoggedInContext } from '../../contexts/IsLoggedIn';
 import styles from './Navbar.module.css';
 
 import { logout } from 'features/auth/models/isLoggedInSlice';
-import rootReducer from 'reducers';
+import rootReducer, { RootState } from 'reducers';
 import { Action } from 'redux';
 
 const mapDispatch = { logoutAction: logout };
 interface Props {
   logoutAction: () => Action;
 }
-
-export const useIsLogged = () => React.useContext(IsLoggedInContext);
 
 interface LinkInterface {
   path: string;
@@ -40,10 +37,8 @@ const links: LinkInterface[] = [
 ];
 
 const Navbar = ({ logoutAction }: Props) => {
-  const isLoggedIn = useSelector((state: any) => state.isLoggedIn);
-  console.log('isLoggedInState', isLoggedIn);
+  const isLoggedIn = useSelector((state: RootState) => state.isLoggedIn);
   const location = useLocation();
-  // const { isLoggedIn, setIsLoggedIn } = useIsLogged()!;
   const initialColor = location.pathname === '/' ? 'inherit' : '#2D6A4F';
   const [background, setBackground] = useState(initialColor);
   const navStyle = {

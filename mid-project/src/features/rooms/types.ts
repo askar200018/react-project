@@ -6,6 +6,7 @@ export interface House {
 }
 
 export interface Room {
+  id: number;
   name: string;
   description: string;
   like: number;

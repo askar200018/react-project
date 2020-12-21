@@ -1,7 +1,8 @@
-import { Room, RoomType } from '../models/room.model';
+import { Room, RoomType } from 'features/rooms/types';
 
 export const InitialRooms: Room[] = [
   {
+    id: 1,
     name: 'Bedroom by Futuris Architects',
     description:
       'This is how our co-founder Albert Galstyan describes this bedroom A collision of cold grey and warm brown, this bedroom is an embodied comfort.Being an imprescriptible part of the interior, the bed is surrounded by carefully chosen details. A wall mirror for morning and evening routines, reading lamps, and those delicate curtains.We aimed to create a space for You to come to after a long, tiring day, and enjoy the silence. After all, isn’t that the function of a bedroom?',
@@ -13,6 +14,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Bedroom,
   },
   {
+    id: 2,
     name: 'Modern Guest Bedroom',
     description:
       'This guest bedroom interior design project is located in one condominium unit area sudirman, South Jakarta. The total living area of   the guest bedroom is 18 m². In the design, the team carrying the theme Modern Interior with wood finishing motif. Establish a design based on the client refrence photo given at the beginning of the discussion. Surely there must be slight modifications. We modify the selected colors into unisex colors (can be for male and female rooms) and size adjustments so that the shape and atmosphere of the room from refrensi images can still be obtained.',
@@ -24,6 +26,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Bedroom,
   },
   {
+    id: 3,
     name: 'Сomfortable Bedroom',
     description:
       'Who doesn’t dream about a cozy warm bed in a light, comfortable bedroom? Dreams come true with realistic 3D visualizations by Archivizer.',
@@ -35,6 +38,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Bedroom,
   },
   {
+    id: 4,
     name: 'BEDROOM MODEL WAVE',
     description:
       'Bedroom model Wave of the company PROTEAS. The entire bedroom is made of walnut veneer with lacquer details. The bed has side panels painted in black gloss lacquer.',
@@ -46,6 +50,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Bedroom,
   },
   {
+    id: 5,
     name: 'Natural Stone Pedestal Sink Bathroom',
     description:
       "Here's what happens when nature enters the bathroom. Interior with river stone sinks. Natural stone freestanding washbasins are impressive and addictive. We produce natural stone pedestal sinks in Indonesia and for special orders, we first take photos and only after approval, we pack and ship them. We want our customers to receive the sinks they expect! Hence the effects!",
@@ -57,6 +62,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Bathroom,
   },
   {
+    id: 6,
     name: 'BATHROOM LED MIRROR SENSATION',
     description:
       'Anti-fog protection through integrated mirror heating Indirect lighting down and up Touch sensor with orientation lighting and dimming function LED life: 50,000 hours High quality crystal mirror (4mm glass thickness)',
@@ -68,6 +74,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Bathroom,
   },
   {
+    id: 7,
     name: 'Luxury bathroom for Children',
     description:
       'A set of handcrafted products made to realize baths fully suitable for children. All products are totally made in Italy near by Florence. Ceramic shower tray border An extruded ceramic element that allows to realize shower tray borders made by tailored elements. The fire cooking of these elements together with the ceramic covering/floors, allows to have the same color and tone harmonizing the bathroom.',
@@ -79,6 +86,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Bathroom,
   },
   {
+    id: 8,
     name: 'CARMEN',
     description:
       'Vintage style Rimless & SUPRALIT® Colours available: Satin white & Satin dark grey',
@@ -90,6 +98,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Bathroom,
   },
   {
+    id: 9,
     name: 'TWO-TONE KITCHEN',
     description:
       'This luxury, bespoke kitchen from Woodstock Furniture features French grey and dark charcoal grey, spray-painted cabinets for a striking contrast with a quartz compac Alaska worktop. A white marble tiled splashback creates an interesting backdrop behind the Mercury range cooker. The Victorian lamppost was sourced from a salvage yard and works well as an island support in the breakfast bar area. Kitchens cost from around £30,000 including VAT',
@@ -101,6 +110,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Kitchenroom,
   },
   {
+    id: 10,
     name: 'SMART KITCHEN',
     description:
       "The model smart kitchen design by 100% interior special for INSTYLE. The smart kitchen eliminates the possibility of errors. We have created a kitchen that doesn't require precise measurements of the room. The constructions of the modules designed not depend on the mistakes of the builders during the laying of engineering communications. The design of the kitchen elements takes into account possible irregularities of the walls and ceiling. It opens a new horizon. Changes the idea of a premium kitchen. Changes the interior. Changes own life. If you are tired of banal interiors, this kitchen is for you. ",
@@ -112,6 +122,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Kitchenroom,
   },
   {
+    id: 11,
     name: 'KITO KITCHEN',
     description:
       'A kitchen designed by the famous Ukrainian designer Pavel Vetrov especially for INSTYLE. Original design solutions in combination with the most modern materials allowed us to create this model. There is the island, open shelves, sliding elements and many storage boxes and drawers. The basic model combines itself the various of a complete set and effective design. This lets you customize it for yourself.',
@@ -123,6 +134,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Kitchenroom,
   },
   {
+    id: 12,
     name: 'MINT METALWOOD KITCHEN',
     description:
       'The kitchen as a lab, where the most frequently used items are in sight and within reach. The natural or enameled steel, natural or lacquered oak and steel or marble countertops help create alternative design solutions to fit homes that need products with soul. Sinks are in exclusive AISI 304 steel, thanks to the innovative PVD Physical treatment ( Physical Vapor Deposition). This allows the deposition of precious metals like nickel and chrome on steel surfaces, giving a unique bright look and greater resistance to scratches and wear. Chopping boards are available in fine Iroko wood highly resistant to wear and absorption of liquids, or in high-density polyethylene (HDPE) that creates a practical working area on the sink bowl and that, thanks to the central removable part, becomes a versatile',
@@ -134,6 +146,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Kitchenroom,
   },
   {
+    id: 13,
     name: 'ARCHITECTURA VITA AND VICARE',
     description:
       'Toilets Wall-mounted toilets, also available with the anti-bacterial AntiBac glaze Selected models are available with the innovative DirectFlush technology - easy cleaning for maximum hygiene Toilet seats aAll toilet seats can withstand Ioads of up to 240 kg, more than the 150 kg required by the standard Special buffers prevent the seat slipping to the Sides when moving from the wheelchair to the toilet Continuous hinge-bolt or QuickRelease and SoftClosing feature for easier use, a recessed groove along the edge of the lid facilitates opening',
@@ -145,6 +158,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Toiletroom,
   },
   {
+    id: 14,
     name: 'VICLEAN-I 100',
     description:
       'High-quality shower toilet The ViClean-I 100 can be operated very easily The novel HarmonicWave shower jet moves gently backwards and forwards in a lateral wave movement Premium materials and technologies (e.g. DirectFlush)',
@@ -156,6 +170,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Toiletroom,
   },
   {
+    id: 15,
     name: 'IN-TANK',
     description:
       'In-Tank is the first toilet that does not require the installation of a cistern, neither built-in or conventional, because the tank is simply integrated within the bowl. An all-in-one solution that makes installation easier, as well as minimising maintenance thanks to a joint-free design that guarantees the perfect condition of the product over time. To ensure the maximum efficiency of these models, we have developed the innovative Soft Air technology, which is exclusive to Roca. This specially designed air injection system directs water from the tank to the upper part of the bowl, providing a highly effective and silent flush. And that is not all. As no separate cistern is required, the new In-Tank toilets take less space and therefore allow greater design freedom for the bathroom.',
@@ -167,6 +182,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Toiletroom,
   },
   {
+    id: 16,
     name: 'VEIL INTELLIGENT WALL-HUNG TOILET',
     description:
       'The Veil Intelligent wall-hung toilet offers integrated personal bidet cleansing while in a modern, space saving design. The mounting hardware is completely concealed, giving Veil a sleek, seamless look that is incredibly easy to clean. Its sculpted core delivers a suite of precision features finely tuned to provide optimum hygiene and ultimate individual comfort, from personal cleansing to an LED nightlight to hands-free opening, closing and flushing. All of the features are easy to control on a touchscreen LCD remote control. In addition to the remote, you can control the Full and Eco flush using the touchless, Honed White actuator plate included with the toilet.',
@@ -178,6 +194,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Toiletroom,
   },
   {
+    id: 17,
     name: 'Kids room',
     description:
       'The creativity of this room design will stimulate the child’s imagination and fantasy. The benefits of this smart design become even more obvious with a 3D visualization, created by Archivizer.',
@@ -189,6 +206,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Kidsroom,
   },
   {
+    id: 18,
     name: 'Kids Bedroom, Residence at SDA, New Delhi',
     description:
       'Since the kid has a tremendous passion for cars, the car shaped artwork on the wall designed in tandem with the study table has a dual purpose of an aesthetic element contributing to the fascination and excitement of the child as well as a purely functional purpose of being used as a support to his daily learning activities by having spaces for white board, writing, storage, pencil stand, lighting etc., thereby involving and engaging his mind more into the whole process instead of the daily mundane task of sitting at a study table that most kids normally don’t get thrilled to do. Also, the car lights at night are more stirring for him that draw him more towards his new room (thereby encouraging him to sleep alone as a daily practice) which has been the intent and demand of the client since the very beginning. Hence, the whole assembly becomes much more fun for him and engrosses him to an extreme level thereby adding value to his life and studies. The study table and low height zip bed with curved side tables have been specifically designed with no sharp edges and corners adding to the softness of the room and catering to his taste as well.',
@@ -200,6 +218,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Kidsroom,
   },
   {
+    id: 19,
     name: 'For Kids',
     description: 'This Home Shows You How to Decorate For Kids',
     cost: 783465,
@@ -210,6 +229,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Kidsroom,
   },
   {
+    id: 20,
     name: 'Safer Space',
     description: 'Nursery Upgrades',
     cost: 904855,
@@ -220,6 +240,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Kidsroom,
   },
   {
+    id: 21,
     name: 'Harmonious living room',
     description:
       'The detailed, colorful visualization of this perfect designed living room is brought to you by the team of Archiviser 3d artists. Visit our website and explore the 3D visualization potential for your business!',
@@ -231,6 +252,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Livingroom,
   },
   {
+    id: 22,
     name: 'Spectacular Living Room',
     description:
       'No matter how complicated your design idea seems, our team at Archivizer.com will help you bringing it to life. Visit our website and explore the potential of 3D visualizations!',
@@ -242,6 +264,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Livingroom,
   },
   {
+    id: 23,
     name: 'Luxurious living room',
     description:
       'Every corner of this luxurious room is filled with soft, natural light. Interior designers can get a realistic 3D visualization of their most challenging projects with Archivizer',
@@ -253,6 +276,7 @@ export const InitialRooms: Room[] = [
     roomType: RoomType.Livingroom,
   },
   {
+    id: 24,
     name: 'Kitchen and Living Room Combined',
     description:
       'Using 3d visualization you can capture even the smallest details of this stylish living room decoration. Visit Archivizer.com and order high quality 3D visualizations of your projects!',

@@ -1,8 +1,13 @@
+import {
+  addActiveUserRoom,
+  removeActiveUserRoom,
+} from 'features/auth/models/activeUserSlice';
 import React, { useEffect, useState } from 'react';
 import { act } from 'react-dom/test-utils';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { useActiveUser } from '../../../contexts/ActiveUserContext';
-import { Room } from '../../../models/room.model';
+import { RootState } from 'reducers';
+import { Room } from '../types';
 import styles from './RoomsItem.module.scss';
 interface Props {
   index: number;
@@ -18,29 +23,17 @@ const findRoom = (rooms: Room[], room: Room): boolean => {
 };
 
 const RoomsItem = ({ room, index, houseId, isAddedInitial }: Props) => {
-  // console.log(room, 'props room');
+  const activeUser = useSelector((state: RootState) => state.activeUser);
+  const dispatch = useDispatch();
   const location = useLocation();
-  const { activeUser, setActiveUser } = useActiveUser()!;
   const [isAdded, setIsAdded] = useState(isAddedInitial);
   console.log('isAddedInitial', isAddedInitial);
   const addRoom = (addedRoom: Room) => {
-    activeUser.houses[houseId].rooms = [...activeUser.houses[houseId].rooms, addedRoom];
-    // console.log('activeUser', activeUser);
-    setActiveUser(activeUser);
-    localStorage.setItem('activeUser', JSON.stringify(activeUser));
+    dispatch(addActiveUserRoom({ room: addedRoom, houseId }));
     setIsAdded(true);
   };
   const removeRoom = (removedRoom: Room) => {
-    const roomIndex = activeUser.houses[houseId].rooms.findIndex(
-      (r) => removedRoom.name === r.name,
-    );
-    activeUser.houses[houseId].rooms = [
-      ...activeUser.houses[houseId].rooms.slice(0, roomIndex),
-      ...activeUser.houses[houseId].rooms.slice(roomIndex + 1),
-    ];
-    // console.log('activeUser', activeUser);
-    setActiveUser(activeUser);
-    localStorage.setItem('activeUser', JSON.stringify(activeUser));
+    dispatch(removeActiveUserRoom({ roomId: removedRoom.id, houseId }));
     setIsAdded(false);
   };
   useEffect(() => {
@@ -62,7 +55,10 @@ const RoomsItem = ({ room, index, houseId, isAddedInitial }: Props) => {
           </button>
         )}
         {isAdded && (
-          <button className={styles.btn_remove} onClick={() => removeRoom(room)}>
+          <button
+            className={styles.btn_remove}
+            onClick={() => removeRoom(room)}
+          >
             Remove
           </button>
         )}

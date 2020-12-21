@@ -5,7 +5,10 @@ import _ from 'lodash/fp';
 
 import { userCreate } from 'api/user';
 import styles from './styles.module.scss';
-import { Profession } from '../types';
+import { Profession, User } from '../types';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'reducers';
+import { addUser } from '../models/usersSlice';
 
 interface Props {}
 
@@ -21,7 +24,20 @@ const professons: Profession[] = [
   Profession.User,
 ];
 
+const isUserExist = (users: User[], newUser: User): boolean => {
+  const user = users.find(
+    (user) =>
+      user.email === newUser.email && user.password === newUser.password,
+  );
+  if (user) {
+    return true;
+  }
+  return false;
+};
+
 export const Register = (props: Props) => {
+  const dispatch = useDispatch();
+  const users = useSelector((state: RootState) => state.users);
   const inputEl = useRef<HTMLInputElement>(null);
   const { register, handleSubmit, errors } = useForm();
   const [errorUser, setErrorUser] = useState('');
@@ -34,9 +50,10 @@ export const Register = (props: Props) => {
   }, []);
 
   const onSubmit = (data: IForm) => {
-    const newUser = { ...data, houses: [] };
+    const newUser: User = { ...data, houses: [], id: -1 };
     console.log(data);
-    if (userCreate(newUser)) {
+    if (!isUserExist(users, newUser)) {
+      dispatch(addUser(newUser));
       history.push('/signin');
     } else {
       setErrorUser('User with this email already registered!');

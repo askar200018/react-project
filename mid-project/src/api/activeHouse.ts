@@ -1,5 +1,3 @@
-import { House } from '../models/house.interface';
-
 export const getActiveHouse = (): number => {
   if (localStorage.getItem('activeUser')) {
     localStorage.getItem('activeUser');

@@ -1,21 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { App } from './App';
+import { Provider } from 'react-redux';
+
+import store from 'store';
+// import { App } from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { Provider } from 'react-redux';
-import { configureStore, createStore } from '@reduxjs/toolkit';
-import rootReducer from './reducers';
 
-const store = configureStore({
-  reducer: rootReducer,
-});
-// const store = createStore(
-//   rootReducer,
-//   (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-//     (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
-// );
+const App = require('./App').default;
 
 const renderTarget = document.getElementById('app');
 render(

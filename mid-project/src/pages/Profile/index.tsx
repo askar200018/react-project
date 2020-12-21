@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import _ from 'lodash/fp';
 import { useForm } from 'react-hook-form';
-import { useActiveUser } from '../../contexts/ActiveUserContext';
 import './Profile.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'reducers';
+import { User } from 'features/auth/types';
+import { editUser } from 'features/auth/models/usersSlice';
 
 interface Props {}
 interface IForm {
@@ -12,14 +15,13 @@ interface IForm {
 }
 
 const ProfilePage = (props: Props) => {
-  const { activeUser, setActiveUser } = useActiveUser()!;
+  const activeUser = useSelector((state: RootState) => state.activeUser);
+  const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
   const [isEdit, setIsEdit] = useState(false);
   const onSubmit = (data: IForm) => {
-    const newUser = { ...activeUser, ...data };
-    setActiveUser(newUser);
-    localStorage.setItem('activeUser', JSON.stringify(newUser));
-    console.log(data);
+    const newUser: User = { ...activeUser, ...data };
+    dispatch(editUser(newUser));
     setIsEdit(false);
   };
   return (

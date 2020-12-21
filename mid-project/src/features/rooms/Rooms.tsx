@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getActiveHouse } from '../../api/activeHouse';
-import { useActiveUser } from '../../contexts/ActiveUserContext';
-import { Room } from '../../models/room.model';
 import RoomsItem from './components/RoomsItem';
 import styles from './Rooms.module.scss';
+import { Room } from './types';
 interface Props {
   rooms: Room[];
   houseId: number;
@@ -13,7 +11,6 @@ interface Props {
 }
 
 const Rooms = ({ rooms, name, link, houseId }: Props) => {
-  const { activeUser, setActiveUser } = useActiveUser()!;
   const [isAddedRooms, setIsAddedRooms] = useState([]);
 
   return (
@@ -21,7 +18,14 @@ const Rooms = ({ rooms, name, link, houseId }: Props) => {
       <h1 className={styles.title}>{name}</h1>
       <div className={styles.wrap}>
         {rooms.map((room, index) => {
-          return <RoomsItem room={room} index={index} houseId={houseId} isAddedInitial={false} />;
+          return (
+            <RoomsItem
+              room={room}
+              index={index}
+              houseId={houseId}
+              isAddedInitial={false}
+            />
+          );
         })}
       </div>
       <div className={styles.rooms_link}>
