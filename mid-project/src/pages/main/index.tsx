@@ -16,18 +16,18 @@ interface Props {}
 const MainPage = (props: Props) => {
   return (
     <>
-      <div className="content-wrapper">
-        <div className="content-block">
-          <h2 className="content-header big">Projects + Specs</h2>
-          <h3 className="content-header">
+      <div className="content">
+        <div className="content__block">
+          <h2 className="content__header big">Projects + Specs</h2>
+          <h3 className="content__header">
             The latest projects with product specifications
           </h3>
-          <div className="content-main">
-            <div className="photos">
-              <div className="photo">
+          <div className="content__main">
+            <div className="content__photos">
+              <div className="content__photo">
                 <img src={img1} width="100%" height="100%" />
               </div>
-              <div className="photo">
+              <div className="content__photo">
                 <img src={img2} width="24%" height="100%" />
                 <img src={img3} width="24%" height="100%" />
                 <img src={img4} width="24%" height="100%" />
@@ -35,33 +35,33 @@ const MainPage = (props: Props) => {
               </div>
             </div>
             <div className="description">
-              <h1 className="description-header">Old Town Modern</h1>
-              <p className="description-designers">
+              <h1 className="description__header">Old Town Modern</h1>
+              <p className="description__designers">
                 By dSPACE Studio • Private Houses • Old Town, Chicago, IL, USA •
                 2016
               </p>
-              <p className="description-info">
+              <p className="description__info">
                 This Old Town home was built in 1972. Designed by Bruce Graham,
                 architect of the Sears Tower, it remained unaltered by the
                 original owner until our client purchased it. The exterior had
                 deteriorated beyond repair and the interior needed a new floor.
               </p>
-              <div className="description-block">
-                <h5 className="description-header">Product spec sheet</h5>
-                <h6 className="orange">
+              <div className="description__block">
+                <h5 className="description__header">Product spec sheet</h5>
+                <h6 className="description__header-text">
                   Fireplace and Wall cladding, Kitchen Backsplash
                 </h6>
-                <h6 className="black">
+                <h6 className="description__header-text">
                   Kitchen Backsplash, Pearl Grey Marbleby Stone Source
                 </h6>
-                <h6 className="orange">Kitchen peninsula sconce</h6>
-                <h6 className="black">Arc Wall lamp 33“ by Allied Maker</h6>
-                <h6 className="orange">Kitchen and North Bar countertop</h6>
-                <h6 className="black">Silver lake by DIFINITI</h6>
-                <h6 className="orange">Fireplace</h6>
-                <h6 className="black">Birmingham 36 by Heatilator - Wood</h6>
-                <h6 className="orange">4 panel sliding door</h6>
-                <h6 className="black">Windsor Windows and Doors</h6>
+                <h6 className="description__header-text">Kitchen peninsula sconce</h6>
+                <h6 className="description__header-text">Arc Wall lamp 33“ by Allied Maker</h6>
+                <h6 className="description__header-text">Kitchen and North Bar countertop</h6>
+                <h6 className="description__header-text">Silver lake by DIFINITI</h6>
+                <h6 className="description__header-text">Fireplace</h6>
+                <h6 className="description__header-text">Birmingham 36 by Heatilator - Wood</h6>
+                <h6 className="description__header-text">4 panel sliding door</h6>
+                <h6 className="description__header-text">Windsor Windows and Doors</h6>
               </div>
             </div>
           </div>

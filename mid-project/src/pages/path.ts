@@ -12,6 +12,7 @@ export const paths = {
   profile: () => '/profile',
   catalog: () => '/catalog',
   houses: () => '/houses',
+  //homeDetail: () => '/detail',
   /**
    * @example
    * user: (username = ':username') => `/@${username}`,
