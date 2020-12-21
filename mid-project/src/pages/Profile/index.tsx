@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'reducers';
 import { User } from 'features/auth/types';
 import { editUser } from 'features/auth/models/usersSlice';
+import { loginUser } from 'features/auth/models/activeUserSlice';
 
 interface Props {}
 interface IForm {
@@ -22,6 +23,7 @@ const ProfilePage = (props: Props) => {
   const onSubmit = (data: IForm) => {
     const newUser: User = { ...activeUser, ...data };
     dispatch(editUser(newUser));
+    dispatch(loginUser(newUser));
     setIsEdit(false);
   };
   return (
