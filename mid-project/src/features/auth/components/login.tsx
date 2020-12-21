@@ -12,6 +12,7 @@ import { useHistory } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { User } from '../types';
 import { RootState } from 'reducers';
+import { fetchUsers } from '../models/usersSlice';
 
 interface Props {}
 interface IForm {
@@ -20,7 +21,9 @@ interface IForm {
 }
 
 export const Login = () => {
-  const users = useSelector((state: RootState) => state.users);
+  const { users, isLoading, error: usersError, isFetched } = useSelector(
+    (state: RootState) => state.users,
+  );
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -33,7 +36,29 @@ export const Login = () => {
     if (inputEl && inputEl.current) {
       inputEl.current.focus();
     }
+    if (!isFetched) {
+      dispatch(fetchUsers());
+    }
   }, []);
+
+  const divStyle = {
+    color: 'blue',
+    marginTop: '300px',
+  };
+
+  if (usersError) {
+    console.log('roomsErrror');
+    return (
+      <div style={divStyle}>
+        <h1>Something went wrong...</h1>
+        <div>{usersError.toString()}</div>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return <h1 style={divStyle}>Loading ...</h1>;
+  }
 
   const onSubmit = (data: IForm) => {
     const activeUser = users.find((user: User) => {

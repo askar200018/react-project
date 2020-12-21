@@ -1,12 +1,16 @@
-import React, { Fragment, Suspense, useState } from 'react';
+import React, { Fragment, Suspense, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Pages } from './pages';
 import { Navbar } from './ui/navbar';
+import { makeServer } from './server';
+
+if (process.env.NODE_ENV === 'development') {
+  makeServer({ environment: 'development' });
+}
 
 const App: React.FC = () => {
   const location = useLocation();
-  console.log(location.pathname, 'path name');
   return (
     <Fragment>
       <Suspense fallback={<h1>Loading Route ...</h1>}>

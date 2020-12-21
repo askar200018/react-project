@@ -45,13 +45,11 @@ const ProfilePage = (props: Props) => {
   const { register, handleSubmit, errors } = useForm();
 
   const [state, isEditDispatch] = useReducer(reducer, initialState);
-  // const [isEdit, setIsEdit] = useState(false);
   const onSubmit = (data: IForm) => {
     const newUser: User = { ...activeUser, ...data };
     dispatch(editUser(newUser));
     dispatch(loginUser(newUser));
     isEditDispatch({ type: Actions.SET_IS_EDIT, payload: { isEdit: false } });
-    // setIsEdit(false);
   };
   return (
     <div className="wrapper-profile">

@@ -3,12 +3,11 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import _ from 'lodash/fp';
 
-import { userCreate } from 'api/user';
 import styles from './styles.module.scss';
 import { Profession, User } from '../types';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'reducers';
-import { addUser } from '../models/usersSlice';
+import { addUser, fetchUsers } from '../models/usersSlice';
 
 interface Props {}
 
@@ -37,7 +36,9 @@ const isUserExist = (users: User[], newUser: User): boolean => {
 
 export const Register = (props: Props) => {
   const dispatch = useDispatch();
-  const users = useSelector((state: RootState) => state.users);
+  const { users, isLoading, error: usersError, isFetched } = useSelector(
+    (state: RootState) => state.users,
+  );
   const inputEl = useRef<HTMLInputElement>(null);
   const { register, handleSubmit, errors } = useForm();
   const [errorUser, setErrorUser] = useState('');
@@ -46,6 +47,9 @@ export const Register = (props: Props) => {
   useEffect(() => {
     if (inputEl && inputEl.current) {
       inputEl.current.focus();
+    }
+    if (!isFetched) {
+      dispatch(fetchUsers());
     }
   }, []);
 
@@ -59,6 +63,24 @@ export const Register = (props: Props) => {
       setErrorUser('User with this email already registered!');
     }
   };
+  const divStyle = {
+    color: 'blue',
+    marginTop: '300px',
+  };
+
+  if (usersError) {
+    console.log('roomsErrror');
+    return (
+      <div style={divStyle}>
+        <h1>Something went wrong...</h1>
+        <div>{usersError.toString()}</div>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return <h1 style={divStyle}>Loading ...</h1>;
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
