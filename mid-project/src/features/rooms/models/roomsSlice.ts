@@ -38,7 +38,7 @@ const roomsSlice = createSlice({
       state.error = null;
       state.isFetched = true;
     },
-    addLike(state: RoomsState, action: PayloadAction<number>) {
+    addRoomLike(state: RoomsState, action: PayloadAction<number>) {
       const { rooms } = state;
       const room = rooms.find((room) => room.id === action.payload);
       if (room) {
@@ -46,7 +46,7 @@ const roomsSlice = createSlice({
       }
       state.rooms = rooms;
     },
-    removeLike(state: RoomsState, action: PayloadAction<number>) {
+    removeRoomLike(state: RoomsState, action: PayloadAction<number>) {
       const { rooms } = state;
       const room = rooms.find((room) => room.id === action.payload);
       if (room) {
@@ -87,8 +87,8 @@ const roomsSlice = createSlice({
 export const {
   getRoomsStart,
   getRoomsSuccess,
-  addLike,
-  removeLike,
+  addRoomLike,
+  removeRoomLike,
   addComment,
   removeComment,
   getRoomsFailure,

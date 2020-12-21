@@ -1,15 +1,15 @@
 import React from 'react';
-import './Items.scss';
+import './List.scss';
 interface Props {
   items: Item[];
 }
 export enum RoomType {
-  Bathroom,
-  Bedroom,
-  Toiletroom,
-  Livingroom,
-  Kitchenroom,
-  Kidsroom,
+  Bathroom = 'Bathroom',
+  Bedroom = 'Bedroom',
+  Toiletroom = 'Toiletroom',
+  Livingroom = 'Livingroom',
+  Kitchenroom = 'Kitchenroom',
+  Kidsroom = 'Kidsroom',
 }
 export interface Item {
   name: string;

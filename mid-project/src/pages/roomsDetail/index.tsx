@@ -48,12 +48,14 @@ const getNextLink = (name: string): string => {
 
 const RoomsDetailPage = (props: Props) => {
   const dispatch = useDispatch();
-  const { rooms, isLoading, error: roomsError } = useSelector(
+  const { rooms, isLoading, error: roomsError, isFetched } = useSelector(
     (state: RootState) => state.rooms,
   );
 
   useEffect(() => {
-    dispatch(fetchRooms());
+    if (!isFetched) {
+      dispatch(fetchRooms());
+    }
   }, []);
   // console.log('new rooms');
   const match = useRouteMatch<{ houseId: string; id: string }>();

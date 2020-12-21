@@ -33,7 +33,12 @@ const Houses = (props: Props) => {
         <div className={styles.card}>
           <div className={styles.card_pic_wrap}>
             <Link to="/create">
-              <img src={require('./images/house.jpg')} alt="A leafy plant" />
+              <img
+                src={
+                  'https://archello.s3.eu-central-1.amazonaws.com/images/2018/10/11/Contemporary-Modern-House-Design-6.1539270983.8601.jpg'
+                }
+                alt="A leafy plant"
+              />
             </Link>
           </div>
           <div className={styles.card_content}>
