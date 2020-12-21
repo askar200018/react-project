@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import RoomsItem from './components/RoomsItem';
 import styles from './Rooms.module.scss';
@@ -19,17 +19,20 @@ const Rooms = ({ rooms, name, link, houseId }: Props) => {
       <div className={styles.wrap}>
         {rooms.map((room, index) => {
           return (
-            <RoomsItem
-              room={room}
-              index={index}
-              houseId={houseId}
-              isAddedInitial={false}
-            />
+            <Fragment key={room.id}>
+              <RoomsItem
+                room={room}
+                index={index}
+                houseId={houseId}
+                isAddedInitial={false}
+              />
+            </Fragment>
           );
         })}
       </div>
       <div className={styles.rooms_link}>
-        <Link to={`/rooms/${houseId}/${link}`}>Next</Link>
+        {link === '' && <Link to={`${link}`}>Done</Link>}
+        {link !== '' && <Link to={`/rooms/${houseId}/${link}`}>Next</Link>}
       </div>
     </div>
   );

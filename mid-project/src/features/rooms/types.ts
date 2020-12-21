@@ -26,6 +26,8 @@ export enum RoomType {
 }
 
 export interface Comment {
+  id: number;
+  userId: number;
   title: string;
   content: string;
   createdDate: Date;

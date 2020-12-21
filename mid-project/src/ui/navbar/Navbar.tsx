@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 import { logout } from 'features/auth/models/isLoggedInSlice';
-import rootReducer, { RootState } from 'reducers';
+import { RootState } from 'reducers';
 import { Action } from 'redux';
 
 const mapDispatch = { logoutAction: logout };

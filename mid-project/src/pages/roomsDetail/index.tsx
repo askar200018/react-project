@@ -1,8 +1,9 @@
 import Rooms from 'features/rooms/Rooms';
 import { RoomType } from 'features/rooms/types';
 import React, { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router';
-import { RoomsContext } from '../../App';
+import { RootState } from 'reducers';
 
 interface Props {}
 
@@ -45,13 +46,12 @@ const getNextLink = (name: string): string => {
 };
 
 const RoomsDetailPage = (props: Props) => {
+  const rooms = useSelector((state: RootState) => state.rooms);
   // console.log('new rooms');
   const match = useRouteMatch<{ houseId: string; id: string }>();
   const roomName = match.params.id;
   const roomType = getRoomType(roomName);
-  const rooms = useContext(RoomsContext);
   const newRooms = rooms.filter((room) => room.roomType === roomType);
-  // console.log(rooms, 'new rooms');
   return (
     <div>
       <Rooms

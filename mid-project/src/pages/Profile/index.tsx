@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import _ from 'lodash/fp';
 import { useForm } from 'react-hook-form';
 import './Profile.scss';
@@ -15,16 +15,43 @@ interface IForm {
   password: string;
 }
 
+interface IsEditState {
+  isEdit: boolean;
+}
+
+export enum Actions {
+  SET_IS_EDIT,
+}
+
+export interface Action {
+  type: Actions;
+  payload: { isEdit: boolean };
+}
+
+const initialState: IsEditState = { isEdit: false };
+
+function reducer(state: IsEditState, action: Action) {
+  switch (action.type) {
+    case Actions.SET_IS_EDIT:
+      return { isEdit: action.payload.isEdit };
+    default:
+      throw new Error();
+  }
+}
+
 const ProfilePage = (props: Props) => {
   const activeUser = useSelector((state: RootState) => state.activeUser);
   const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm();
-  const [isEdit, setIsEdit] = useState(false);
+
+  const [state, isEditDispatch] = useReducer(reducer, initialState);
+  // const [isEdit, setIsEdit] = useState(false);
   const onSubmit = (data: IForm) => {
     const newUser: User = { ...activeUser, ...data };
     dispatch(editUser(newUser));
     dispatch(loginUser(newUser));
-    setIsEdit(false);
+    isEditDispatch({ type: Actions.SET_IS_EDIT, payload: { isEdit: false } });
+    // setIsEdit(false);
   };
   return (
     <div className="wrapper-profile">
@@ -39,7 +66,7 @@ const ProfilePage = (props: Props) => {
                 ref={register({
                   required: true,
                 })}
-                disabled={!isEdit}
+                disabled={!state.isEdit}
                 className="input"
                 defaultValue={activeUser.name}
               />
@@ -55,7 +82,7 @@ const ProfilePage = (props: Props) => {
                   required: true,
                   pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
                 })}
-                disabled={!isEdit}
+                disabled={!state.isEdit}
                 defaultValue={activeUser.email}
                 className="input"
               />
@@ -67,15 +94,20 @@ const ProfilePage = (props: Props) => {
               )}
             </div>
           </div>
-          {!isEdit && (
+          {!state.isEdit && (
             <button
               className="btn-profile-edit"
-              onClick={() => setIsEdit(true)}
+              onClick={() =>
+                isEditDispatch({
+                  type: Actions.SET_IS_EDIT,
+                  payload: { isEdit: true },
+                })
+              }
             >
               Edit
             </button>
           )}
-          {isEdit && (
+          {state.isEdit && (
             <button className="btn-profile" type="submit">
               Submit
             </button>

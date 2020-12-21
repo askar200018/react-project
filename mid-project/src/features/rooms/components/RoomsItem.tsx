@@ -2,7 +2,7 @@ import {
   addActiveUserRoom,
   removeActiveUserRoom,
 } from 'features/auth/models/activeUserSlice';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
@@ -16,20 +16,15 @@ interface Props {
   houseId: number;
 }
 
-const findRoom = (rooms: Room[], room: Room): boolean => {
-  const check = rooms.find((r) => room.name === r.name);
-  console.log(!!check, room, 'check');
-  return !!check;
-};
-
 const RoomsItem = ({ room, index, houseId, isAddedInitial }: Props) => {
-  const activeUser = useSelector((state: RootState) => state.activeUser);
   const dispatch = useDispatch();
+  // console.log('isAddedState', isAddedState);
+
   const location = useLocation();
   const [isAdded, setIsAdded] = useState(isAddedInitial);
-  console.log('isAddedInitial', isAddedInitial);
   const addRoom = (addedRoom: Room) => {
     dispatch(addActiveUserRoom({ room: addedRoom, houseId }));
+    // console.log('isAddedState', isAddedState);
     setIsAdded(true);
   };
   const removeRoom = (removedRoom: Room) => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './houses.module.scss';
 import { useSelector } from 'react-redux';
