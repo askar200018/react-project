@@ -1,44 +1,82 @@
 import { CaseReducer, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { getUsers } from 'api/usersAPI';
+import { AppThunk } from 'store';
 import { Profession, User } from '../types';
 
-type State = User[];
+interface UsersState {
+  users: User[];
+  isLoading: boolean;
+  error: string | null;
+  isFetched: boolean;
+}
 let nextUserId = 1;
 
-const initialState: User[] = [
-  {
-    id: 1,
-    name: 'askar',
-    email: 'askar@test.kz',
-    password: 'askar',
-    houses: [],
-    profession: Profession.Developer,
-  },
-];
+const initialState: UsersState = {
+  users: [],
+  isLoading: false,
+  error: null,
+  isFetched: false,
+};
+
+function startLoading(state: UsersState) {
+  state.isLoading = true;
+}
+
+function loadingFailed(state: UsersState, action: PayloadAction<string>) {
+  state.isLoading = false;
+  state.error = action.payload;
+}
 
 const usersSlice = createSlice({
-  name: 'isLoggedIn',
+  name: 'users',
   initialState,
   reducers: {
+    getUsersStart: startLoading,
+    getUsersSuccess(state: UsersState, { payload }: PayloadAction<User[]>) {
+      state.users = payload;
+      state.isLoading = false;
+      state.error = null;
+      state.isFetched = true;
+    },
     addUser: {
-      reducer(state: State, action: PayloadAction<User>) {
-        state.push(action.payload);
+      reducer(state: UsersState, action: PayloadAction<User>) {
+        const { users } = state;
+        users.push(action.payload);
       },
       prepare(user: User) {
         return { payload: { ...user, id: ++nextUserId } };
       },
     },
-    editUser(state: State, action: PayloadAction<User>) {
-      state = state.map((user) => {
+    editUser(state: UsersState, action: PayloadAction<User>) {
+      const { users } = state;
+      const newUsers = users.map((user) => {
         if (user.id === action.payload.id) {
           user = action.payload;
         }
         return user;
       });
-      return state;
+      state.users = newUsers;
     },
+    getUsersFailure: loadingFailed,
   },
 });
 
-export const { addUser, editUser } = usersSlice.actions;
+export const {
+  getUsersStart,
+  getUsersSuccess,
+  addUser,
+  editUser,
+  getUsersFailure,
+} = usersSlice.actions;
 
 export default usersSlice.reducer;
+
+export const fetchUsers = (): AppThunk => async (dispatch) => {
+  try {
+    dispatch(getUsersStart());
+    const users = await getUsers();
+    dispatch(getUsersSuccess(users));
+  } catch (err) {
+    dispatch(getUsersFailure(err.toString()));
+  }
+};

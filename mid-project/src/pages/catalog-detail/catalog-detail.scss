@@ -1,0 +1,13 @@
+.catalog-detail {
+  margin-top: 100px;
+  &__title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-around;
+  }
+}

@@ -15,6 +15,7 @@ const MainPage = lazy(() => import('./main'));
 const ProfilePage = lazy(() => import('./profile'));
 const CatalogPage = lazy(() => import('./catalog'));
 //const HomeDetailPage = lazy(() => import('./homeDetail'));
+const CatalogDetail = lazy(() => import('./catalog-detail'));
 
 export const ROUTES: RouteConfig[] = [
   {
@@ -66,6 +67,11 @@ export const ROUTES: RouteConfig[] = [
     path: paths.catalog(),
     exact: true,
     component: CatalogPage,
+  },
+  {
+    path: paths.catalogDetail(':roomType'),
+    exact: true,
+    component: CatalogDetail,
   },
   {
     path: paths.houses(),

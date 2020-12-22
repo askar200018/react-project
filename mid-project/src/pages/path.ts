@@ -1,3 +1,5 @@
+import { RoomType } from 'features/rooms/types';
+
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 export const paths = {
   home: () => '/',
@@ -11,6 +13,7 @@ export const paths = {
   main: () => '/main',
   profile: () => '/profile',
   catalog: () => '/catalog',
+  catalogDetail: (roomType: string) => `/catalog/${roomType}`,
   houses: () => '/houses',
   //homeDetail: () => '/detail',
   /**
