@@ -6,12 +6,13 @@
   outline: none;
   font-family: 'Roboto', sans-serif;
 }
-.q {
+.container {
   height: 100vh;
   background: url(./images/photo_2020.jpg)
   no-repeat center center fixed;
   background-size: cover;
   display: flex;
+  
 }
 
 .wrapper {

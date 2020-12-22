@@ -54,10 +54,10 @@ const ProfilePage = (props: Props) => {
   return (
     <div className="wrapper-profile">
       <div className="wrapper">
-        <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
-          <h2>Profile Data</h2>
-          <div className="input-fields">
-            <div className="input-field">
+        <form onSubmit={handleSubmit(onSubmit)} className="wrapper-profile__contact-form">
+          <h2 className="wrapper-profile__title">Profile Data</h2>
+          <div>
+            <div>
               <input
                 type="text"
                 name="name"
@@ -65,14 +65,13 @@ const ProfilePage = (props: Props) => {
                   required: true,
                 })}
                 disabled={!state.isEdit}
-                className="input"
                 defaultValue={activeUser.name}
               />
               {_.get('name.type', errors) === 'required' && (
-                <p className="error">Name is required</p>
+                <p className="wrapper-profile__error">Name is required</p>
               )}
             </div>
-            <div className="input-field">
+            <div>
               <input
                 type="email"
                 name="email"
@@ -82,19 +81,18 @@ const ProfilePage = (props: Props) => {
                 })}
                 disabled={!state.isEdit}
                 defaultValue={activeUser.email}
-                className="input"
               />
               {_.get('email.type', errors) === 'required' && (
-                <p className="error">Email is required</p>
+                <p className="wrapper__error">Email is required</p>
               )}
               {_.get('email.type', errors) === 'pattern' && (
-                <p className="error">Email should include @</p>
+                <p className="wrapper__error">Email should include @</p>
               )}
             </div>
           </div>
           {!state.isEdit && (
             <button
-              className="btn-profile-edit"
+              className="wrapper-profile__btn"
               onClick={() =>
                 isEditDispatch({
                   type: Actions.SET_IS_EDIT,
@@ -106,7 +104,7 @@ const ProfilePage = (props: Props) => {
             </button>
           )}
           {state.isEdit && (
-            <button className="btn-profile" type="submit">
+            <button className="wrapper-profile__btn" type="submit">
               Submit
             </button>
           )}

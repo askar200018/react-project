@@ -69,7 +69,7 @@ export default function ContactsPage({}: Props): ReactElement {
   };
 
   return (
-    <div className="q">
+    <div className="container">
       <div className="wrapper">
         <form className="contact-form">
           <div className="input-fields">

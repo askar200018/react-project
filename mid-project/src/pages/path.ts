@@ -15,6 +15,7 @@ export const paths = {
   catalog: () => '/catalog',
   catalogDetail: (roomType: string) => `/catalog/${roomType}`,
   houses: () => '/houses',
+  //homeDetail: () => '/detail',
   /**
    * @example
    * user: (username = ':username') => `/@${username}`,

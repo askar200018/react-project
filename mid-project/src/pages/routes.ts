@@ -3,6 +3,7 @@ import { lazy } from 'react';
 
 import { paths } from './path';
 import HomePage from './home';
+//import { HomeDetailPage } from './homeDetail/index';
 
 const HousesPage = lazy(() => import('./houses'));
 const ContactsPage = lazy(() => import('./contacts'));
@@ -13,6 +14,7 @@ const RoomsDetailPage = lazy(() => import('./roomsDetail'));
 const MainPage = lazy(() => import('./main'));
 const ProfilePage = lazy(() => import('./profile'));
 const CatalogPage = lazy(() => import('./catalog'));
+//const HomeDetailPage = lazy(() => import('./homeDetail'));
 const CatalogDetail = lazy(() => import('./catalog-detail'));
 
 export const ROUTES: RouteConfig[] = [
@@ -76,4 +78,9 @@ export const ROUTES: RouteConfig[] = [
     exact: true,
     component: HousesPage,
   },
+  /*{
+    path: paths.homeDetail(),
+    exact: true,
+    component: HomeDetailPage,
+  }*/
 ];
