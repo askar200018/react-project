@@ -14,8 +14,10 @@ const RoomsDetailPage = lazy(() => import('./roomsDetail'));
 const MainPage = lazy(() => import('./main'));
 const ProfilePage = lazy(() => import('./profile'));
 const CatalogPage = lazy(() => import('./catalog'));
-//const HomeDetailPage = lazy(() => import('./homeDetail'));
+const HomeDetailPage = lazy(() => import('./home-detail'));
 const CatalogDetail = lazy(() => import('./catalog-detail'));
+const ErrorPage = lazy(() => import('./error-page'));
+const RoomDetailPage = lazy(() => import('./room-detail'));
 
 export const ROUTES: RouteConfig[] = [
   {
@@ -78,9 +80,19 @@ export const ROUTES: RouteConfig[] = [
     exact: true,
     component: HousesPage,
   },
-  /*{
-    path: paths.homeDetail(),
+  {
+    path: paths.homeDetail(':houseId'),
     exact: true,
     component: HomeDetailPage,
-  }*/
+  },
+  {
+    path: paths.errorPage(),
+    exact: true,
+    component: ErrorPage,
+  },
+  {
+    path: paths.roomDetailPage(':roomId'),
+    exact: true,
+    component: RoomDetailPage,
+  },
 ];

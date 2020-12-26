@@ -42,7 +42,6 @@ const RoomsItem = ({ room, index, houseId, isAddedInitial }: Props) => {
         </Link>
       </div>
       <div className={styles.card_content}>
-        {JSON.stringify(isAddedInitial)}
         <h3 className={styles.card_name}>{room.name}</h3>
         {!isAdded && (
           <button className={styles.room_btn} onClick={() => addRoom(room)}>

@@ -30,5 +30,4 @@ export interface Comment {
   userId: number;
   title: string;
   content: string;
-  createdDate: Date;
 }

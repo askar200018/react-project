@@ -1,25 +1,31 @@
-  //background: url(./images/photo_2020.jpg)
-  //no-repeat center center fixed;
-  //background-size: cover;
-  //display: flex;
+//background: url(./images/photo_2020.jpg)
+//no-repeat center center fixed;
+//background-size: cover;
+//display: flex;
 
-  .wrapper-profile {
-    background: url(./images/photo_2020.jpg) center no-repeat;
-    background-size: cover;
-    padding-top: 100px;
-    &__contact-form {
+.wrapper-profile {
+  background: url(./images/photo_2020.jpg) center no-repeat;
+  background-size: cover;
+  padding-top: 100px;
+  &__contact-form {
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.8);
+    input {
+      color: rgba(0, 0, 0, 0.8);
+      background: inherit;
+      border-bottom: 1px solid #5d7963;
     }
-    &__title {
-      color: #5d7963;
-    }
-    &__error {
-      color: red;
-    }
-    &__btn{
-      color: #5d7963;
-      border: 1px solid #5d7963;
-    }
-    height: 100vh;
   }
+  &__title {
+    color: #5d7963;
+  }
+  &__error {
+    color: red;
+  }
+  &__btn {
+    color: #5d7963;
+    border: 1px solid #5d7963;
+  }
+  height: 100vh;
+}

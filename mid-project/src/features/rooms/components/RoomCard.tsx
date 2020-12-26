@@ -5,6 +5,7 @@ import './rooms.scss';
 import { HeartOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { addRoomLike, removeRoomLike } from '../models/roomsSlice';
+import { Link } from 'react-router-dom';
 
 interface Props {
   room: Room;
@@ -32,7 +33,9 @@ export const RoomCard = ({ room }: Props) => {
         />
       </div>
       <div className="room-card__body">
-        <h3 className="room-card__title">{room.name}</h3>
+        <Link to={`/room/${room.id}`}>
+          <h3 className="room-card__title">{room.name}</h3>
+        </Link>
         <p className="room-card__description">{room.description}</p>
       </div>
       <div className="room-card__footer">

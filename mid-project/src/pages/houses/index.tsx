@@ -17,7 +17,7 @@ const Houses = (props: Props) => {
           return (
             <div className={styles.card} key={index}>
               <div className={styles.card_pic_wrap}>
-                <Link to="/">
+                <Link to={`/house/${house.id}`}>
                   <img
                     src={require('./images/house.jpg')}
                     alt="A leafy plant"

@@ -27,6 +27,8 @@ function loadingFailed(state: RoomsState, action: PayloadAction<string>) {
   state.error = action.payload;
 }
 
+let nextCommentId = 0;
+
 const roomsSlice = createSlice({
   name: 'roomsSlice',
   initialState,
@@ -54,28 +56,35 @@ const roomsSlice = createSlice({
       }
       state.rooms = rooms;
     },
-    addComment(
-      state: RoomsState,
-      action: PayloadAction<{ id: number; comment: Comment }>,
-    ) {
-      const { rooms } = state;
-      const { id, comment } = action.payload;
-      const room = rooms.find((room) => room.id === id);
-      if (room) {
-        room.comments.push(comment);
-      }
-      state.rooms = rooms;
+    addComment: {
+      reducer(
+        state: RoomsState,
+        action: PayloadAction<{ id: number; comment: Comment }>,
+      ) {
+        const { rooms } = state;
+        const { id, comment } = action.payload;
+        const room = rooms.find((room) => room.id === id);
+        if (room) {
+          room.comments.push(comment);
+        }
+        state.rooms = rooms;
+      },
+      prepare(id: number, comment: Comment) {
+        return {
+          payload: { id, comment: { ...comment, id: ++nextCommentId } },
+        };
+      },
     },
     removeComment(
       state: RoomsState,
-      action: PayloadAction<{ id: number; comment: Comment }>,
+      action: PayloadAction<{ id: number; commentId: number }>,
     ) {
       const { rooms } = state;
-      const { id, comment } = action.payload;
+      const { id, commentId } = action.payload;
       const room = rooms.find((room) => room.id === id);
       if (room) {
         room.comments = room.comments.filter(
-          (comment) => comment.id !== comment.id,
+          (comment) => comment.id !== commentId,
         );
       }
       state.rooms = rooms;
